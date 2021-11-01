@@ -1,0 +1,21 @@
+.menCard{
+    margin-top: 20vh;
+}
+.cardStyle{
+    width: 15rem;
+    border: none;
+    margin-top: 30px;
+}
+#mansH{
+    color: black;
+}
+.imgSize{
+    height: 220px;
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+/* div{
+    border: 2px solid red;
+} */

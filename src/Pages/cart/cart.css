@@ -1,0 +1,13 @@
+#card-cart h5,p{
+    text-align: left;
+    font-size:x-large;
+}
+#card-cart label,select,.btn-rm{
+    float: left;
+    margin-left: 1vh;
+    height: 30px;
+}
+#card-cart .btn-rm{
+    background-color: white;
+    border: none;
+}

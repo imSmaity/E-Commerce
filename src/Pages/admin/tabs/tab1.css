@@ -1,0 +1,22 @@
+.form__container{
+    width: 200vh;
+}
+.fb1{
+    margin-left: 65vh;
+}
+.pds label{
+    margin-left: 3vh;
+}
+.pds input,label,select{
+    margin-top: 5vh;
+    margin-left: 2vh;
+    float: left;
+}
+.pds input,select{
+
+    width: 30vh;
+}
+.pds button{
+    margin-top: 10vh;
+    margin-left: 2vh;
+}

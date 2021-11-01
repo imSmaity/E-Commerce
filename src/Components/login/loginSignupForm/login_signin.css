@@ -1,0 +1,12 @@
+.log1 input{
+    padding: 5px;
+    margin-top: 3vh;
+    width: 50vh;
+}
+.log1 button,#tb{
+    margin-top: 5vh;
+}
+#scbtn{
+    margin-left: 2vh;
+}
+

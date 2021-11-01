@@ -1,0 +1,17 @@
+.textLink{
+    color: black;
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.textLink:hover{
+    color: black;
+}
+.cardStyle-h img{
+   height: 220px;
+   width: 250px;
+}
+.cardStyle-h {
+    height: 350px;
+    margin-top: 20px;
+}

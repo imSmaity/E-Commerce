@@ -1,0 +1,26 @@
+.tabs{
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 20%;
+    height: 100vh;
+    padding: 5px;
+}
+.tabs button{
+    font-size: large;
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 30px 16px;
+    width: 98%;
+    border: 1px solid rgba(32, 32, 32, 0.411);
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-top: 14vh;
+}
+.tabs button:hover {
+    background-color: #ddd;
+}

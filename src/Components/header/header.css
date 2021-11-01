@@ -1,0 +1,25 @@
+
+#title-link{
+    color: white;
+    text-decoration: none;
+}
+.topFixed{
+    background-color: black;
+}
+
+#cart:hover{
+    border: 1px solid white;
+
+}
+@media screen and (max-width: 575px){
+    .searchBox1{
+        display: none;
+        
+    }
+    #h3{
+        text-align:left;
+    }
+}
+/* div{
+    border: 1px solid red;
+} */

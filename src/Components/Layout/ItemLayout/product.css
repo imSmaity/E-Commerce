@@ -1,0 +1,71 @@
+.timg-1{
+    width: 400px;
+    height: 410px;
+    border: 1px solid black;
+    padding: 5px;
+}
+#cartImg{
+
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+
+}
+.tTop-1{
+    margin-top: 120px;
+}
+.title-1{
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+}
+#price-1{
+    text-align: left;
+    color: red;
+    padding: 20px;
+}
+.colortext-1{
+    margin-left: 10px;
+}
+#pinInput{
+    float: left;
+    margin: 3vh;
+    margin-top: 7vh;
+}
+.btnT-1{
+    height: 7vh;
+    width: 18vh;
+}
+.btnT-1:hover{
+    color: white;
+}
+#btn{
+    text-align: left;
+    padding: 20px;
+    margin-top: 20vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+}
+#btn1{
+    background-color:orange;
+    border: none;
+}
+#btn2{
+    background-color: orangered;
+    border: none;
+    margin-left: 2vh;
+}
+
+#ddays{
+    color: green;
+    text-align: left;
+}
+#tabHead{
+    margin-top: 7vh;
+}
+
+.cartPosi{
+    float: right;
+}
+/* div{
+    border: 2px solid red;
+} */
