@@ -9,7 +9,7 @@ const Login=()=>{
                 <input type='email' placeholder="E-mail" required/><br/>
                 <input type='password' placeholder="Password" required/><br/>
                 <button type="submit" className="btn btn-dark">Login</button>
-                <div id="tb">Don't have an account?<Link to="/user-signin"> Sign Up</Link></div>
+                <div id="tb">Don't have an account?<Link to="/user-signin"><strong> Sign Up</strong></Link></div>
             </center>
        </div>
     );
