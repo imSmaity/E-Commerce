@@ -19,10 +19,10 @@ const ItemCards=()=>{
             <div className="container-fluid">
                 <div className="row">
                     {
-                        CardsData.map((val)=>{
-                            console.log(val.link)
+                        CardsData.map((val,index)=>{
+
                             return(
-                            <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                            <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-3" key={index}>
                                 <center>
                                 <Cards
                                     cardTitle={val.cardTitle}

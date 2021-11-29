@@ -11,6 +11,15 @@
     border: 1px solid white;
 
 }
+#uname-dply{
+    color: white;
+    font-weight: bold;
+}
+#loginBtn2{
+    border: none;
+    background: black;
+    color: blue;
+}
 @media screen and (max-width: 575px){
     .searchBox1{
         display: none;

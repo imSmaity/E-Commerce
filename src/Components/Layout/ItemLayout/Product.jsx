@@ -1,24 +1,48 @@
-import React from "react";
+import React, { createContext } from "react";
 import Header from "../../header/Header";
 import Navbar from "../../navbar/Navbar";
 import './product.css';
+import axios from 'axios'
 // import { cartItem } from "../Cart";
 import { Link } from "react-router-dom";
-import Cart from "../../../Pages/cart/Cart";
+
 import Footer from "../../footer/Footer";
 
-function addToCart(data){
-    const login=false;
-    if(login){
-        <Cart cartItem={data}/>
-    }
+const BuyNow=createContext();
+
+const addToCart=(itemData)=>{
+    const token=JSON.parse(localStorage.getItem("token"))
+    axios({
+        method:'POST',
+        url:'http://localhost:8080/admin/userData_update',
+        data:{
+            itemData:itemData,
+            userId:token.email
+        }
+        
+    })
+    .then(res=>{
+        localStorage.setItem("token",JSON.stringify(res.data))
+        console.log(res.data)
+        // console.log(JSON.parse(localStorage.getItem("token")))
+    })
+    .catch(
+        console.log("DB Error!!!")
+    )
 }
 
-const Button=(data)=>{
+function buyNow(itemData){
+    
+}
+
+const Button=(props)=>{
+   
     return (
         <div id="btn">
-            <Link to="/"><button type='button' id="btn1" className='btnT-1' onClick={addToCart(data)} >ADD TO CART</button></Link>
-            <button type='button' id="btn2" className='btnT-1'>BUY NOW</button>
+            <button type='button' id="btn1" className='btnT-1' onClick={()=>addToCart(props.productData)} >ADD TO CART</button>
+            <Link to={window.location.pathname+"/checkout"}>
+                <button type='button' id="btn2" className='btnT-1' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
+            </Link>
         </div>
     );
 }
@@ -103,7 +127,7 @@ const Product=(props)=>{
                     <h3 id="price-1">Price:	₹{props.data.price}</h3>
                     {colorPacks}
                     {deliveryPin}
-                    <Button data={props.data}/>
+                    <Button productData={props.data}/>
                 </div>
                 <div className="col-12">
                     {productDetails(props.data)}

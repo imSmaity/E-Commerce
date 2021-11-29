@@ -4,6 +4,7 @@ import {Home,Cart,MenWomenFashion,Admin, Orders, CustomerService, Mp1, Mp2, Mp3,
 import LoginSignin from '../Components/login/LoginSignin';
 import Signin from '../Components/login/loginSignupForm/Signin';
 import { HomeItem } from './HomeItem.jsx';
+import { BuyingItem } from './buyItem/BuyingItem.jsx';
 
 
 function Routes() {
@@ -14,6 +15,9 @@ function Routes() {
         <Switch>
           <Route exact path="/">
             <Home/>
+          </Route>
+          <Route path="/cart">
+            <Cart/>
           </Route>
           <Route path="/user-login">
             <LoginSignin/>
@@ -30,7 +34,8 @@ function Routes() {
           <Route exact path="/mw_fashion">
             <MenWomenFashion/>
           </Route>
-          <Route path="/mw_fashion/T1">
+          
+          <Route exact path="/mw_fashion/T1">
             <Mp1/>
           </Route>
           <Route path="/mw_fashion/S1">
@@ -42,13 +47,12 @@ function Routes() {
           <Route path="/mw_fashion/H1">
             <Mp4/>
           </Route>
+          <BuyingItem/>
           <Route path="/admin2">
             <Admin/>
           </Route>
           <HomeItem/>
-          <Route path="/cart">
-            <Cart/>
-          </Route>
+          
           
         </Switch>
       </div>
