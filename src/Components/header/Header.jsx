@@ -1,8 +1,8 @@
 import './header.css';
-import search from '../../Assets/Images/header-img/search.png';
 import cart from '../../Assets/Images/header-img/cart.svg';
 import { Link } from 'react-router-dom';
 import { count_cart } from '../../Pages/cart/Cart';
+import Search from '../search/Search';
 
 
 
@@ -52,14 +52,7 @@ const Header=()=>{
                     <h3 id="h3"><Link id="title-link" to="/">Shop.IN</Link></h3>
                 </div>
                 <div className="searchBox1 col-lg-4 col-md-4 col-sm-4">
-                    <form >
-                        <div className="input-group">
-                            <input type="text" className="form-control"  align="center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon1"/>
-                            <button className="btn btn-primary btn-sm" type="button" id="button-addon1">
-                                <img src={search} alt="..." />
-                            </button>
-                        </div>
-                    </form>
+                    <Search/>
                 </div>
                 <div className="col-lg-3 col-md-3 col-sm-3 col-3">
                     {button}

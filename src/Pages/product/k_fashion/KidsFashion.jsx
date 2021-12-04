@@ -1,13 +1,13 @@
-
 import { Link,useRouteMatch } from 'react-router-dom';
 import ProductData from '../../../Api/ProductData';
-import { Footer, Loading } from '../../../Components';
+import { Loading } from '../../../Components';
+import Footer from '../../../Components/footer/Footer';
 import Header from '../../../Components/header/Header';
 import Navbar from '../../../Components/navbar/Navbar';
-import './covid19Product.css'
+import './kidsFashion.css'
 
-const Covid19Product=()=>{
-    let {url}=useRouteMatch()
+const KidsFashion=()=>{
+    let {url}=useRouteMatch();
     const apiData=ProductData()
 
     return(
@@ -20,12 +20,12 @@ const Covid19Product=()=>{
                     <Navbar/>
                 </div>
                 <div className="col-12 marginTop">
-                    <h3>Equipment for covid-19</h3>
+                    <h3 id="kidsH">kids' fashion Clothes and Dresses</h3>
                     <div className="row container-fluid">
                     {
                         !apiData.isLoaded?
                         <Loading/>:
-                        apiData.data.covid19_product.map((val,index)=>{
+                        apiData.data.kids_fashion.map((val,index)=>{
                             return(
                             <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
                                 <center>
@@ -46,9 +46,8 @@ const Covid19Product=()=>{
                     <Footer/>
                 </div>
             </div>
-            
         </>
     );
 }
 
-export default Covid19Product;
+export default KidsFashion;

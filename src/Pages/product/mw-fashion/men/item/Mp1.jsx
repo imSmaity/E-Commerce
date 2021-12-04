@@ -21,7 +21,6 @@ export const Mp1=()=>{
         return <div>Loading...</div>
     }
     else if(data[0] != undefined){
-        console.log(data)
         return <Product data={data[0]}/>;
     }
     else{

@@ -4,12 +4,15 @@ import Men from './men/Men';
 import Women from './women/Women';
 import './menWomenFashion.css';
 import Footer from '../../../Components/footer/Footer';
+import { Loading } from '../../../Components';
+import ProductData from '../../../Api/ProductData';
 
 
 
 const MenWomenFashion=()=>{
 
-    
+    const apiData=ProductData()
+  
     return(
         <>
             <div className="row">
@@ -19,14 +22,18 @@ const MenWomenFashion=()=>{
                 <div className="col-12">
                     <Navbar/>
                 </div>
-                <div className="col-12 menCard">
-                    <h3 id="mansH">Styles for Men</h3> 
-                    <Men/>
-                </div>
-                {/* <div className="col-12 menCard">
-                    <h3 id="mansH">Styles for Women</h3> 
-                    <Women/>
-                </div> */}
+                {
+                    !apiData.isLoaded? 
+                    <Loading/>:
+                    <>
+                        <div className="col-12 menCard">
+                            <Men data={apiData.data.men_fashion} />
+                        </div>
+                        <div className="col-12 menCard">
+                            <Women data={apiData.data.women_fashion}/>
+                        </div>
+                    </>
+                }
                 <div className="col-12">
                     <Footer/>
                 </div>

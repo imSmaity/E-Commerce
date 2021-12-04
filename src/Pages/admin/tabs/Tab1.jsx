@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './tab1.css';
 
 const Tab1=(props)=>{
-    const [data,setData]=useState({pId:'',pName:'',iLink:'',price:'',color:'',dimen:'',wei:'',qnty:'',gName:''});
+    const [data,setData]=useState({pType:'',pId:'',pName:'',iLink:'',price:'',color:'',dimen:'',wei:'',qnty:'',gName:''});
 
     function handleChange(e){
         setData({...data,[e.target.name]:e.target.value});
@@ -17,6 +17,7 @@ const Tab1=(props)=>{
             method: 'post',
             url: 'http://localhost:8080/admin',
             data: {
+                productType: data.pType,
                 productId : data.pId,
                 productName : data.pName,
                 imageLink: data.iLink,
@@ -43,6 +44,19 @@ const Tab1=(props)=>{
                     <table>
                         <tbody>
                             <tr>
+                                <td>
+                                    <label htmlFor="pType">Product type: </label>
+                                    <select type="text" id="pType" name="pType" onChange={(e)=>handleChange(e)} >
+                                        <option value="">Choose option</option>
+                                        <option value="men_fashion">Men Fashion</option>
+                                        <option value="women_fashion">Women Fashion</option>
+                                        <option value="kids_fashion">Kids' Fashion</option>
+                                        <option value="covid-19_product">Equipment for covid-19</option>
+                                        <option value="electronics_product">Electronics Items</option>
+                                        <option value="electronic_gadget">Electronic Gadgets</option>
+                                        <option value="kitchen_product">Kitchen & Dining product</option>
+                                    </select>
+                                </td>
                                 <td>
                                     <label htmlFor="pid">Product ID: </label>
                                     <input type="text" id="pid" name="pId" onChange={(e)=>handleChange(e)} />

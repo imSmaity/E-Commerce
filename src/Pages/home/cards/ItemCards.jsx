@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Cards=(props)=>{
     return(
         <div className="card cardStyle-h" style={{width: "19rem"}}>
-            <h5 className="card-head"><Link to="/mw_fashion" className="textLink">{props.cardTitle}</Link></h5>
+            <h5 className="card-head"><Link to={props.link} className="textLink">{props.cardTitle}</Link></h5>
             <Link to={props.link}><img className="card-img-top img-fluid" src={props.cardImg} alt="..."/></Link>
             <Link  to={props.link} className="card-text textLink">See more...</Link>
         </div>

@@ -1,57 +1,43 @@
 import './navbar.css';
-import search from '../../Assets/Images/navbar-img/search.png';
-import menu from '../../Assets/Images/navbar-img/menu.png';
 import { Link } from 'react-router-dom';
+import Search from '../search/Search';
 
 const navItemElement=(
-    <div className="col-sm-12 listItem" id="navItem">
-        <Link className="navLink" to="/">Home</Link>    
-        <Link className="navLink" to="/orders">Orders</Link>
-        <Link className="navLink" to="/customer-service">Customer Service</Link>
-    </div>
+    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item active">
+            <Link className="nav-link" aria-current="page" to="/">Home</Link>  
+        </li>
+        <li className="nav-item">
+            <Link className="nav-link" to="/orders">Orders</Link>
+        </li>
+        <li className="nav-item">
+            <Link className="nav-link" to="/customer-service">Customer Service</Link>
+        </li>
+    </ul>
 );
 
 const searchElement=(
     <div className="col-10 searchBox2">
-        <form >
-            <div className="input-group">
-                <input type="text" className="form-control"  align="center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon1"/>
-                <button className="btn btn-primary btn-sm" type="button" id="button-addon1">
-                    <img src={search} alt="..." />
-                </button>
-            </div>
-        </form>
+        <Search/>
     </div>
 );
 
 const Navbar=()=>{
     
-    /* let navStatus=true;
-
-    
-    function styleNavbar(){
-        if(navStatus === true)
-        {
-            document.getElementById('navItem').style.display='inline';
-            navStatus=false;
-        }
-        else
-            {
-            document.getElementById('navItem').style.display='none';
-            navStatus=true;
-        }
-    }   */
 
     return(
         <>
-            <div className="row navFixed fixed-top p-2">
-                <div className="col-2 navBtn ">
-                    <button className="navbarBtn" type="button" ><img src={menu} alt="..."/></button>
+            <nav className="navbar navbar-expand-sm navbar navbar-dark bg-dark navFixed fixed-top">
+                <div className="container-fluid">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarText">
+                        {navItemElement}
+                        {searchElement}
+                    </div>
                 </div>
-                {searchElement}
-                {navItemElement}
-            
-            </div>
+            </nav>
         </>
     );
 }

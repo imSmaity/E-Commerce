@@ -1,0 +1,14 @@
+.aress{
+    border: 2px solid rgba(0, 0, 0, 0.24);
+    padding: 1vh;
+}
+.aress input,textarea{
+    padding: 5px;
+    border: 2px solid lightblue;
+    margin-left: 2vh ;
+    
+}
+
+.mtord{
+    margin-top: 15vh;
+}

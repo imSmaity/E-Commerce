@@ -1,14 +1,15 @@
-import React, { createContext } from "react";
+import React from "react";
 import Header from "../../header/Header";
 import Navbar from "../../navbar/Navbar";
 import './product.css';
 import axios from 'axios'
 // import { cartItem } from "../Cart";
-import { Link } from "react-router-dom";
+import { Link,useRouteMatch } from "react-router-dom";
 
 import Footer from "../../footer/Footer";
 
-const BuyNow=createContext();
+
+
 
 const addToCart=(itemData)=>{
     const token=JSON.parse(localStorage.getItem("token"))
@@ -32,15 +33,18 @@ const addToCart=(itemData)=>{
 }
 
 function buyNow(itemData){
+    const data=JSON.parse(localStorage.getItem("token"))
+
+    localStorage.setItem("token",JSON.stringify(data))
     
 }
 
 const Button=(props)=>{
-   
+   const {url}=useRouteMatch()
     return (
         <div id="btn">
             <button type='button' id="btn1" className='btnT-1' onClick={()=>addToCart(props.productData)} >ADD TO CART</button>
-            <Link to={window.location.pathname+"/checkout"}>
+            <Link to={`${url}/checkout`}>
                 <button type='button' id="btn2" className='btnT-1' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
             </Link>
         </div>
