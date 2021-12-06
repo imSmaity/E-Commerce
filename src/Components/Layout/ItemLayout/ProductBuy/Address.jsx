@@ -1,19 +1,9 @@
-import { useRef, useState } from 'react';
-import './productBuyPage1.css'
+import axios from 'axios';
+import { useState } from 'react';
 import { getUserData } from '../../../../localStorage/localStorage';
+import './address.css'
 
-export const Address=()=>{
 
-    
-
-    const addressFind=(!getUserData().address.length === 0)
-    
-    return (
-        <div className="container-fluid">
-            {addressFind?<DisplayAddress/>:<InputAddress/>}
-        </div>
-    );
-}
 
 function InputAddress(){
     const [currAddress,setAddress]=useState([{name:'',phNo:'',pCode:'',oAddress:''}])
@@ -23,8 +13,25 @@ function InputAddress(){
     }
 
     function submitAddress(){
-        console.log(currAddress)
-        console.log(getUserData())
+        const userData=getUserData()
+        userData.address=[]
+        userData.address=currAddress
+        localStorage["token"]=JSON.stringify(userData)
+        window.location.reload()
+        axios({
+            method:'POST',
+            url:'http://localhost:8080/admin/userData_update',
+            data:{
+                userData:getUserData(),
+            }
+            
+        })
+        .then(res=>{
+            console.log("Address update",res.data)
+        })
+        .catch(
+            console.log("DB Error!!!")
+        )
     }
     return(
         <div className="aress">
@@ -37,10 +44,25 @@ function InputAddress(){
     )
 }
 
-function DisplayAddress(){
+function DisplayAddress({address}){
+
     return(
         <div className="aress">
-            Your address is stored
+            <div>Name:{address.name}</div>
+            <div>Phone Number:{address.phNo}</div>
+            <div>Pin Code:{address.pCode}</div>
+            <div>{address.oAddress}</div>
+
         </div>
     )
+}
+
+export const Address=()=>{
+
+    const addressFind=getUserData().address.length!==0
+    return (
+        <div className="container-fluid">
+            {addressFind?<DisplayAddress address={getUserData().address}/>:<InputAddress/>}
+        </div>
+    );
 }

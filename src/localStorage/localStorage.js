@@ -1,6 +1,6 @@
 
 function setUserData(data){
-    const userData=JSON.parse(localStorage.setItem("token",data))
+    const userData=JSON.parse(localStorage.setItem("token",JSON.stringify(data)))
     return userData
 }
 

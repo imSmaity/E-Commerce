@@ -6,15 +6,10 @@
 
 
 
-.navBtn,.searchBox2{
-    display: none;
-    background-color: rgb(14, 14, 37);
-}
+
 @media screen and (max-width: 575px){
 
-    .navBtn,.searchBox2{
-        display: inline;
-    }
+
     .navbarBtn{
         border:none;
         margin-right: 100px;

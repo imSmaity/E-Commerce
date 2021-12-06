@@ -39,7 +39,7 @@ const Login=()=>{
             if(res.data.password === data.password){
                 localStorage.setItem("token",JSON.stringify(res.data))
 
-                history.push('/')
+                window.history.back()
             }
             else{
                 

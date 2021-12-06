@@ -21,10 +21,6 @@
     color: blue;
 }
 @media screen and (max-width: 575px){
-    .searchBox1{
-        display: none;
-        
-    }
     #h3{
         text-align:left;
     }

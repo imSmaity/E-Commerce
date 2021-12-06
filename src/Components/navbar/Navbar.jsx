@@ -1,6 +1,6 @@
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import Search from '../search/Search';
+
 
 const navItemElement=(
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -16,12 +16,6 @@ const navItemElement=(
     </ul>
 );
 
-const searchElement=(
-    <div className="col-10 searchBox2">
-        <Search/>
-    </div>
-);
-
 const Navbar=()=>{
     
 
@@ -34,7 +28,6 @@ const Navbar=()=>{
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         {navItemElement}
-                        {searchElement}
                     </div>
                 </div>
             </nav>

@@ -1,31 +1,33 @@
 import { PriceDetails } from "../../../PriceDetails/PriceDetails"
 import { Address } from "./Address"
-import './productBuyPage1.css'
 import Header from '../../../header/Header'
 import Navbar from "../../../navbar/Navbar";
 import Footer from '../../../footer/Footer'
 import { OrderingItem } from "./orderingItem/OrderingItem";
-import { Link,useRouteMatch } from "react-router-dom";
+import { Link,useRouteMatch,useLocation } from "react-router-dom";
+import { getUserData } from "../../../../localStorage/localStorage";
 
 export const ProductBuyPage1=()=>{
     const {url}=useRouteMatch()
+    const pending_orders=getUserData().pending_orders
+
     return(
         <div className="row">
             <div className="col-12"><Header/></div>
             <div className="col-12"><Navbar/></div>
 
     
-            <div className="col-12 mtord">
-                <Address/>
+            <div className="col-12">
+                <Address />
             </div>
             <div className="col-8">
-                <OrderingItem/>
+                <OrderingItem pendingOrder={pending_orders}/>
                 <div>
-                    <Link to={`${url}/payment_options`}><button type="button" className="btn btn-primary">Continue</button></Link>
+                    <Link to={`${url}/payment_options`}><button type="button" className="btn btn-primary float-end mt-2">Continue</button></Link>
                 </div>
             </div>
             <div className="col-4">
-                <PriceDetails/>
+                <PriceDetails pendingOrder={pending_orders}/>
             </div>
             <div className="col-12"><Footer/></div>
         </div>

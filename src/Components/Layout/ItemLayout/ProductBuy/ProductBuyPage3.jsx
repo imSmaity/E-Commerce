@@ -1,3 +1,4 @@
+
 import { getUserData } from "../../../../localStorage/localStorage";
 import Footer from "../../../footer/Footer";
 import Header from "../../../header/Header";
@@ -6,8 +7,7 @@ import { Address } from "./Address";
 import './productBuyPage3.css'
 
 export const ProductBuyPage3=()=>{
-    const itemData=getUserData()
-
+    const pending_orders=getUserData().pending_orders
 
     return(
         <div className="row">
@@ -19,17 +19,25 @@ export const ProductBuyPage3=()=>{
             </div>
             <div className="col-12 mt-3">
                 <div className="container-fluid">
-                    <div className="row ps1h">
+                {
+                    pending_orders.map((val,index)=>{
+                        return(
+                            <div className="row ps1h" key={index}>
+                        
+                                <div className="col-4">
+                                    <img className="img-fluid" src={val.imageLink} alt="..."/>
+                                    <span><h5>{val.productName}</h5></span>
+                                </div>
+                                <div className="col-4"></div>
+                                <div className="col-4">
+                                    <p>Total ₹{val.price}</p>
+                                </div>
+                            </div>
+                        );
+                    })
+                }
                     
-                        <div className="col-4">
-                            <img className="img-fluid" src={itemData.pendingOrder.imageLink} alt="..."/>
-                            <span><h5>{itemData.pendingOrder.productName}</h5></span>
-                        </div>
-                        <div className="col-4"></div>
-                        <div className="col-4">
-                            <p>Total ₹{itemData.pendingOrder.price}</p>
-                        </div>
-                    </div>
+                        
                 </div>
             </div>
             <div className="col-12"><Footer/></div>

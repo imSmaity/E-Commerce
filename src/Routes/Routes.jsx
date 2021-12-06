@@ -16,10 +16,11 @@ import {Home,Cart,
   ElectronicDevices,
   ElectronicProducts
 } from '../Pages/index.js';
+import Product from '../Components/Layout/ItemLayout/Product';
 
 
 function Routes() {
-  let {path}=useRouteMatch();
+
   return (
     <Router>
       <div className="Routes">
@@ -27,9 +28,7 @@ function Routes() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/cart">
-            <Cart/>
-          </Route>
+          
           <Route path="/user-login">
             <LoginSignin/>
           </Route>
@@ -42,6 +41,8 @@ function Routes() {
           <Route path="/customer-service">
             <CustomerService/>
           </Route>
+
+          
           <Route exact path="/mw_fashion">
             <MenWomenFashion/>
           </Route>
@@ -60,18 +61,110 @@ function Routes() {
           <Route exact path="/k_product">
             <KitchenProduct/>
           </Route>
-          <Route exact path="/mw_fashion/:id">
-            <Mp1/>
+          <Route exact path="/cart">
+            <Cart/>
           </Route>
+          
+          
+          
+          
+          
+          {/* ------------------------------------------------------------- */}
+          <Route exact path="/mw_fashion/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/K_fashion/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/covid19_product/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/e_devices/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/e_product/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/k_product/:id">
+            <Product/>
+          </Route>
+          <Route exact path="/cart/:id">
+            <ProductBuyPage1/>
+          </Route>
+
+          {/* ------------------------------------------------------------- */}
+          
           <Route exact path="/mw_fashion/:id/:id">
             <ProductBuyPage1/>
           </Route>
+          <Route exact path="/K_fashion/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
+          <Route exact path="/covid19_product/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
+          <Route exact path="/e_devices/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
+          <Route exact path="/e_product/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
+          <Route exact path="/k_product/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
+          <Route exact path="/cart/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          
+          
+          {/* ------------------------------------------------------------- */}
           <Route exact path="/mw_fashion/:id/:id/:id">
             <PaymentOptions/>
           </Route>
+          <Route exact path="/K_fashion/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          <Route exact path="/covid19_product/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          <Route exact path="/e_devices/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          <Route exact path="/e_product/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          <Route exact path="/k_product/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
+          <Route exact path="/cart/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          
+          {/* ------------------------------------------------------------- */}
+          
+          
+          
           <Route  path="/mw_fashion/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
+          <Route  path="/K_fashion/:id/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          <Route  path="/covid19_product/:id/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          <Route  path="/e_devices/:id/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          <Route  path="/e_product/:id/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          <Route  path="/k_product/:id/:id/:id/:id">
+            <ProductBuyPage3/>
+          </Route>
+          {/* ------------------------------------------------------------- */}
+          
+          
           {/* <Route path="/mw_fashion/S1">
             <Mp2/>
           </Route>
@@ -95,6 +188,6 @@ function Routes() {
 }
 function Topic(){
   let {id}=useParams();
-  return <div><Mp1/></div>;
+  return <div><Product/></div>;
 }
 export default Routes;
