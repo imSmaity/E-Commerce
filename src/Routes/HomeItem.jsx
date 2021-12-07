@@ -1,16 +1,10 @@
 import { Route } from "react-router-dom";
-import { AboutUs, Coat1, Help, Null, RealmeMob1 } from "../Pages";
+import { AboutUs, Help, Null} from "../Pages";
 
 
 export const HomeItem=()=>{
     return(
         <>
-            <Route path="/Louis_Philippe_Jeans_Pure_Cotton_Solid_Coat">
-                <Coat1/>
-            </Route>
-            <Route path="/Realme_Mobile_Narzo_20">
-                <RealmeMob1/>
-            </Route>
             <Route path="/s_cares">
                 <Null/>
             </Route>

@@ -36,10 +36,10 @@ export default function Button(props){
     const {url}=useRouteMatch()
     
      return (
-         <div id="btn">
-             <Link to="/cart"><button type='button' id="btn1" className='btnT-1' onClick={()=>addToCart(props.productData)} >ADD TO CART</button></Link>
-             <Link to={{pathname:`${url}/checkout`,state:props.productData}}>
-                 <button type='button'  id="btn2" className='btnT-1' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
+         <div id="productBtn">
+             <Link to="/cart"><button type='button' id="cartBtn" className='btnT-1d' onClick={()=>addToCart(props.productData)} >ADD TO CART</button></Link>
+             <Link to={`${url}/checkout`}>
+                 <button type='button'  id="buyBtn" className='btnT-1d' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
              </Link>
          </div>
      );

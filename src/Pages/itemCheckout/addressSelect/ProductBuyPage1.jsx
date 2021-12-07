@@ -1,11 +1,11 @@
-import { PriceDetails } from "../../../PriceDetails/PriceDetails"
-import { Address } from "./Address"
-import Header from '../../../header/Header'
-import Navbar from "../../../navbar/Navbar";
-import Footer from '../../../footer/Footer'
-import { OrderingItem } from "./orderingItem/OrderingItem";
+import { PriceDetails } from "../../../Components/PriceDetails/PriceDetails"
+import { Address } from "../../../Components/address/Address"
+import Header from '../../../Components/header/Header'
+import Navbar from "../../../Components/navbar/Navbar";
+import Footer from '../../../Components/footer/Footer'
+import { OrderingItem } from "../../../Components/orderingItem/OrderingItem";
 import { Link,useRouteMatch,useLocation } from "react-router-dom";
-import { getUserData } from "../../../../localStorage/localStorage";
+import { getUserData } from "../../../localStorage/localStorage";
 
 export const ProductBuyPage1=()=>{
     const {url}=useRouteMatch()

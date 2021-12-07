@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 const slide1=(
     <div className="carousel-item active" data-bs-interval="10000">
-        <Link to="/Louis_Philippe_Jeans_Pure_Cotton_Solid_Coat"><img src={slider1} className="d-block w-100 slideImg" alt="..."/></Link>
+        <Link to="/home_carousels/coatM5"><img src={slider1} className="d-block w-100 slideImg" alt="..."/></Link>
         <div className="carousel-caption d-none d-md-block">
             <h4>Louis Philippe Jeans Pure Cotton Solid Coat</h4>
         </div>
@@ -14,7 +14,7 @@ const slide1=(
 );
 const slide2=(
     <div className="carousel-item" data-bs-interval="2000">
-        <Link to="/Realme_Mobile_Narzo_20"><img src={slider2} className="d-block w-100 slideImg" alt="..."/></Link>
+        <Link to="/home_carousels/deviceD5"><img src={slider2} className="d-block w-100 slideImg" alt="..."/></Link>
         <div className="carousel-caption d-none d-md-block">
             <h4>Realme Mobile Narzo 20 (4GB RAM,64GB Storage)</h4>
         </div>
@@ -22,7 +22,7 @@ const slide2=(
 );
 const slide3=(
     <div className="carousel-item">
-    <Link to="/carousel3"><img src={slider3} className="d-block w-100 slideImg" alt="..."/></Link>
+    <Link to="/electronic_gadget/deviceD1"><img src={slider3} className="d-block w-100 slideImg" alt="..."/></Link>
         <div className="carousel-caption d-none d-md-block">
             <h4>Best Offer On Realme Mobiles</h4>
         </div>

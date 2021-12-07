@@ -1,14 +1,14 @@
 
-import { getUserData } from "../../../../localStorage/localStorage";
-import Footer from "../../../footer/Footer";
-import Header from "../../../header/Header";
-import Navbar from "../../../navbar/Navbar";
-import { Address } from "./Address";
+import { getUserData } from "../../../localStorage/localStorage";
+import Footer from "../../../Components/footer/Footer";
+import Header from "../../../Components/header/Header";
+import Navbar from "../../../Components/navbar/Navbar";
+import { Address } from "../../../Components/address/Address";
 import './productBuyPage3.css'
 
 export const ProductBuyPage3=()=>{
     const pending_orders=getUserData().pending_orders
-
+    document.getElementById('chBtn').style.display='none'
     return(
         <div className="row">
             <div className="col-12"><Header/></div>

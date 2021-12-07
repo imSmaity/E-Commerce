@@ -1,13 +1,13 @@
-import { PriceDetails } from "../../../PriceDetails/PriceDetails"
-import Header from '../../../header/Header'
-import Navbar from "../../../navbar/Navbar"
-import Footer from '../../../footer/Footer'
-import { Address } from "./Address"
-import { OrderingItem } from "./orderingItem/OrderingItem"
+import { PriceDetails } from "../../../Components/PriceDetails/PriceDetails"
+import Header from '../../../Components/header/Header'
+import Navbar from "../../../Components/navbar/Navbar"
+import Footer from '../../../Components/footer/Footer'
+import { Address } from "../../../Components/address/Address"
+import { OrderingItem } from "../../../Components/orderingItem/OrderingItem"
 import { Link, useRouteMatch,useLocation } from "react-router-dom"
-import './productBuyPage2/productBuyPage2.css'
+import './productBuyPage2.css'
 import axios from 'axios'
-import { getUserData } from "../../../../localStorage/localStorage"
+import { getUserData } from "../../../localStorage/localStorage"
 
 export const PaymentOptions=()=>{
     const {url}=useRouteMatch()

@@ -3,20 +3,22 @@ import { BrowserRouter as Router ,Switch,Route,useParams,useRouteMatch} from 're
 import LoginSignin from '../Components/login/LoginSignin';
 import Signin from '../Components/login/loginSignupForm/Signin';
 import { HomeItem } from './HomeItem.jsx';
-import { BuyingItem } from './buyItem/BuyingItem.jsx';
-import { ProductBuyPage1 } from '../Components/Layout/ItemLayout/ProductBuy/ProductBuyPage1.jsx';
-import { PaymentOptions } from '../Components/Layout/ItemLayout/ProductBuy/PaymentOptions.jsx';
-import { ProductBuyPage3 } from '../Components/Layout/ItemLayout/ProductBuy/ProductBuyPage3.jsx';
+
+
 import {Home,Cart,
   MenWomenFashion,Admin, 
   Orders, CustomerService, 
-  Mp1, Mp2, Mp3, Mp4, 
   KidsFashion, Covid19Product, 
   KitchenProduct,
   ElectronicDevices,
-  ElectronicProducts
+  ElectronicProducts,
+  ProductBuyPage1,
+  PaymentOptions,
+  ProductBuyPage3,
+  NotFound
 } from '../Pages/index.js';
-import Product from '../Components/Layout/ItemLayout/Product';
+import Product from '../Components/Layout/product/Product';
+import { admin_url } from '../Pages/admin/Admin';
 
 
 function Routes() {
@@ -43,49 +45,51 @@ function Routes() {
           </Route>
 
           
-          <Route exact path="/mw_fashion">
+          <Route exact path="/men_fashion">
             <MenWomenFashion/>
           </Route>
-          <Route exact path="/K_fashion">
+          <Route exact path="/kids_fashion">
             <KidsFashion/>
           </Route>
-          <Route exact path="/covid19_product">
+          <Route exact path="/covid-19_product">
             <Covid19Product/>
           </Route>
-          <Route exact path="/e_devices">
+          <Route exact path="/electronic_gadget">
             <ElectronicDevices/>
           </Route>
-          <Route exact path="/e_product">
+          <Route exact path="/electronics_product">
             <ElectronicProducts/>
           </Route>
-          <Route exact path="/k_product">
+          <Route exact path="/kitchen_product">
             <KitchenProduct/>
           </Route>
           <Route exact path="/cart">
             <Cart/>
           </Route>
-          
+          <Route path={admin_url}>
+            <Admin/>
+          </Route>
           
           
           
           
           {/* ------------------------------------------------------------- */}
-          <Route exact path="/mw_fashion/:id">
+          <Route exact path="/men_fashion/:id">
             <Product/>
           </Route>
-          <Route exact path="/K_fashion/:id">
+          <Route exact path="/kids_fashion/:id">
             <Product/>
           </Route>
-          <Route exact path="/covid19_product/:id">
+          <Route exact path="/covid-19_product/:id">
             <Product/>
           </Route>
-          <Route exact path="/e_devices/:id">
+          <Route exact path="/electronic_gadget/:id">
             <Product/>
           </Route>
-          <Route exact path="/e_product/:id">
+          <Route exact path="/electronics_product/:id">
             <Product/>
           </Route>
-          <Route exact path="/k_product/:id">
+          <Route exact path="/kitchen_product/:id">
             <Product/>
           </Route>
           <Route exact path="/cart/:id">
@@ -93,23 +97,28 @@ function Routes() {
           </Route>
 
           {/* ------------------------------------------------------------- */}
-          
-          <Route exact path="/mw_fashion/:id/:id">
+          <Route path="/home_carousels/:id">
+              <Product/>
+          </Route>
+          <Route path="/home_carousels/:id">
+              <Product/>
+              </Route>
+          <Route exact path="/men_fashion/:id/:id">
             <ProductBuyPage1/>
           </Route>
-          <Route exact path="/K_fashion/:id/:id">
+          <Route exact path="/kids_fashion/:id/:id">
             <ProductBuyPage1/>
           </Route>
-          <Route exact path="/covid19_product/:id/:id">
+          <Route exact path="/covid-19_product/:id/:id">
             <ProductBuyPage1/>
           </Route>
-          <Route exact path="/e_devices/:id/:id">
+          <Route exact path="/electronic_gadget/:id/:id">
             <ProductBuyPage1/>
           </Route>
-          <Route exact path="/e_product/:id/:id">
+          <Route exact path="/electronics_product/:id/:id">
             <ProductBuyPage1/>
           </Route>
-          <Route exact path="/k_product/:id/:id">
+          <Route exact path="/kitchen_product/:id/:id">
             <ProductBuyPage1/>
           </Route>
           <Route exact path="/cart/:id/:id">
@@ -118,22 +127,22 @@ function Routes() {
           
           
           {/* ------------------------------------------------------------- */}
-          <Route exact path="/mw_fashion/:id/:id/:id">
+          <Route exact path="/men_fashion/:id/:id/:id">
             <PaymentOptions/>
           </Route>
-          <Route exact path="/K_fashion/:id/:id/:id">
+          <Route exact path="/kids_fashion/:id/:id/:id">
             <PaymentOptions/>
           </Route>
-          <Route exact path="/covid19_product/:id/:id/:id">
+          <Route exact path="/covid-19_product/:id/:id/:id">
             <PaymentOptions/>
           </Route>
-          <Route exact path="/e_devices/:id/:id/:id">
+          <Route exact path="/electronic_gadget/:id/:id/:id">
             <PaymentOptions/>
           </Route>
-          <Route exact path="/e_product/:id/:id/:id">
+          <Route exact path="/electronics_product/:id/:id/:id">
             <PaymentOptions/>
           </Route>
-          <Route exact path="/k_product/:id/:id/:id">
+          <Route exact path="/kitchen_product/:id/:id/:id">
             <PaymentOptions/>
           </Route>
           <Route exact path="/cart/:id/:id/:id">
@@ -144,43 +153,41 @@ function Routes() {
           
           
           
-          <Route  path="/mw_fashion/:id/:id/:id/:id">
+          <Route  path="/men_fashion/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/K_fashion/:id/:id/:id/:id">
+          <Route  path="/kids_fashion/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/covid19_product/:id/:id/:id/:id">
+          <Route  path="/covid-19_product/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/e_devices/:id/:id/:id/:id">
+          <Route  path="/electronic_gadget/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/e_product/:id/:id/:id/:id">
+          <Route  path="/electronics_product/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/k_product/:id/:id/:id/:id">
+          <Route  path="/kitchen_product/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
           {/* ------------------------------------------------------------- */}
           
           
-          {/* <Route path="/mw_fashion/S1">
+          {/* <Route path="/men_fashion/S1">
             <Mp2/>
           </Route>
-          <Route path="/mw_fashion/P1">
+          <Route path="/men_fashion/P1">
             <Mp3/>
           </Route>
-          <Route path="/mw_fashion/H1">
+          <Route path="/men_fashion/H1">
             <Mp4/>
           </Route> */}
-          
-          <Route path="/admin2">
-            <Admin/>
+          <Route>
+            <NotFound/>
           </Route>
           <HomeItem/>
-          
-          
+
         </Switch>
       </div>
     </Router>

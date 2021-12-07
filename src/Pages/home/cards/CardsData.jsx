@@ -11,31 +11,31 @@ export const CardsData=[
     {
         cardTitle:"Men and Women fashion",
         cardImg:mw_fashion,
-        link:'/mw_fashion'
+        link:'/men_fashion'
     },
     {
         cardTitle:"kids' fashion Clothes and Dresses",
         cardImg:K_fashion,
-        link:'/K_fashion'
+        link:'/kids_fashion'
     },
     {
         cardTitle:"Personal Protective Equipment for covid-19",
         cardImg:C19_item,
-        link:'/covid19_product'
+        link:'/covid-19_product'
     },
     {
         cardTitle:"Electronic gadgets for work from home",
         cardImg:e_devices,
-        link:'/e_devices'
+        link:'/electronic_gadget'
     },
     {
         cardTitle:"Great deals on Electronics Items",
         cardImg:e_item,
-        link:'/e_product'
+        link:'/electronics_product'
     },
     {
         cardTitle:"Kitchen Tools / Kitchen & Dining",
         cardImg:k_item,
-        link:'/k_product'
+        link:'/kitchen_product'
     }
 ]

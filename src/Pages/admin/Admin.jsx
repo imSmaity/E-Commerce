@@ -3,6 +3,8 @@ import Tab2 from "./tabs/Tab2";
 import Tab3 from "./tabs/Tab3";
 import './admin.css';
 
+const admin_url="/url-admin-suman-expo-20-uino-cc-dd20jadbaoxk36FBVVBJKJ789e3bwekj"
+
 const Admin=()=>{
 
     const styleHide={display:'inline'};
@@ -43,3 +45,4 @@ const Admin=()=>{
 }
 
 export default Admin;
+export {admin_url}

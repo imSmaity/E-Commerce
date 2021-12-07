@@ -3,6 +3,7 @@
     height: 410px;
     border: 1px solid black;
     padding: 5px;
+    margin-left: 1vh;
 }
 #cartImg{
 
@@ -32,24 +33,24 @@
     margin: 3vh;
     margin-top: 7vh;
 }
-.btnT-1{
+.btnT-1d{
     height: 7vh;
-    width: 18vh;
+    width: 20vh;
 }
 .btnT-1:hover{
     color: white;
 }
-#btn{
+#productBtn{
     text-align: left;
     padding: 20px;
     margin-top: 20vh;
     border-bottom: 1px solid rgba(0, 0, 0, 0.212);
 }
-#btn1{
+#cartBtn{
     background-color:orange;
     border: none;
 }
-#btn2{
+#buyBtn{
     background-color: orangered;
     border: none;
     margin-left: 2vh;

@@ -1,6 +1,6 @@
 .aress{
     border: 2px solid rgba(0, 0, 0, 0.24);
-    padding: 1vh;
+    padding: 2vh;
     margin-top: 20vh;
 }
 .aress input,textarea{
@@ -8,4 +8,7 @@
     border: 2px solid lightblue;
     margin-left: 2vh ;
     
+}
+.addressData span,p{
+    margin-left: 1vh;
 }
