@@ -11,7 +11,7 @@
 # production
 /build
 #admin
-src/Pages/admin
+.src/.Pages.admin
 # misc
 .DS_Store
 .env.local
