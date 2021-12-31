@@ -42,7 +42,8 @@ const Header=()=>{
         else{
             button=(
                 <>
-                    <span id="uname-dply">{userData.fname}</span> <button id="loginBtn2"  onClick={loggedOut}>Log out</button>
+                    <span ><Link to={"/profile"} id="uname-dply">{userData.fname}</Link></span> 
+                    <button id="loginBtn2"  onClick={loggedOut}>Logout</button>
                 </>
             );
         }
@@ -55,16 +56,16 @@ const Header=()=>{
     return (
         <>  
             <div className="row topFixed fixed-top p-2">
-                <div className="col-lg-4 col-md-4 col-sm-4 col-3">           {/*flexbox-> 3+5+4*/}
+                <div className="col-lg-8 col-md-7 col-sm-5 col-3">           {/*flexbox-> 3+5+4*/}
                     <h3 id="h3"><Link id="title-link" to="/">Shop.IN</Link></h3>
                 </div>
 
-                <div className="col-lg-4 col-md-4 col-sm-4 col-4">
+                <div className="col-lg-2 col-md-3 col-sm-4 col-5">
                     <center >
                         {button}
                     </center>
                 </div>
-                <div className="col-lg-4 col-md-4 col-sm-4 col-5">
+                <div className="col-lg-2 col-md-2 col-sm-3 col-4">
                     <CartEle cartItemCount={cartCount}/>
                 </div>
             </div>

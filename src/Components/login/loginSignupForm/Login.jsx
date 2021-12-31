@@ -3,6 +3,20 @@ import { Link,useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios'
 
+
+function loggedIn(){
+    const token=localStorage.getItem("token")
+    let loggedIn=true
+    if(token === null){
+        loggedIn=false
+    }
+    return loggedIn
+}
+
+
+
+
+
 const Login=()=>{
     const [data,setData]=useState({email:'',password:''});
     
@@ -10,13 +24,8 @@ const Login=()=>{
 
 
     //............................................. Check the user are login or not--!
-    const token=localStorage.getItem("token")
     
-    let loggedIn=true;
-    if(token === null){
-        loggedIn=false
-    }
-    if(loggedIn){
+    if(loggedIn()){
         history.push('/')
     }
 
@@ -74,3 +83,4 @@ const Login=()=>{
 }
 
 export default Login;
+export {loggedIn}

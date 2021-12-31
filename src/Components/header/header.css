@@ -14,6 +14,13 @@
 #uname-dply{
     color: white;
     font-weight: bold;
+    text-decoration: none;
+}
+#uname-dply:hover{
+    color: orange;
+}
+#loginBtn2:hover{
+    color: white;
 }
 #loginBtn2{
     border: none;

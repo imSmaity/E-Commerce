@@ -11,8 +11,7 @@ import KidsFashion from './product/k_fashion/KidsFashion';
 import KitchenProduct from './product/k_product/KitchenProduct';
 import { Null } from './Null/Null';
 import { AboutUs } from './AboutUs/AboutUs';
-import { UserAccount } from './UserAccount/UserAccount';
-import { ReturnsCentre } from './ReturnsCentre/ReturnsCentre';
+import Profile from './userProfile/Profile';
 import { Help } from './Help/Help';
 import {ProductBuyPage1} from './itemCheckout/addressSelect/ProductBuyPage1'
 import {PaymentOptions} from './itemCheckout/pymentOptionSelect/PaymentOptions'
@@ -20,5 +19,6 @@ import {ProductBuyPage3} from './itemCheckout/orderConfirm/ProductBuyPage3'
 import  NotFound  from './notFound/NotFound';
 
 
-export {Home,Cart,Orders,CustomerService,MenWomenFashion,Admin,Covid19Product,ElectronicDevices,ElectronicProducts,KidsFashion,KitchenProduct,Null,AboutUs,UserAccount,
-   ReturnsCentre, Help,ProductBuyPage1,PaymentOptions,ProductBuyPage3,NotFound};
+export {Home,Cart,Orders,CustomerService,MenWomenFashion,Admin,Covid19Product,ElectronicDevices,
+    ElectronicProducts,KidsFashion,
+    KitchenProduct,Null,AboutUs,Profile,Help,ProductBuyPage1,PaymentOptions,ProductBuyPage3,NotFound};

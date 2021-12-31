@@ -4,18 +4,14 @@ import { useHistory } from 'react-router';
 import Footer from '../../Components/footer/Footer';
 import { getUserData } from '../../localStorage/localStorage';
 import './orders.css'
+import { loggedIn } from '../../Components';
 
 const Orders=()=>{
     
     
     //............................................. Check the user are login or not--!
     const history=useHistory();
-    const token=localStorage.getItem("token")
-    let loggedIn=true;
-    if(token === null){
-        loggedIn=false
-    }
-    if(!loggedIn){
+    if(!loggedIn()){
 
         history.push('/user-login')
     }
@@ -31,7 +27,7 @@ const Orders=()=>{
             </div>
             <div className="col-12 omt">
                 <div className="container">
-                    {
+                    {loggedIn()===true &&
                         getUserData().orders.reverse().map((orderedItem,index)=>{
                             return(
                                 <div key={index}>

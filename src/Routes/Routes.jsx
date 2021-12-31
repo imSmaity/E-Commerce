@@ -2,8 +2,6 @@
 import { BrowserRouter as Router ,Switch,Route,useParams,useRouteMatch} from 'react-router-dom';
 import LoginSignin from '../Components/login/LoginSignin';
 import Signin from '../Components/login/loginSignupForm/Signin';
-import { HomeItem } from './HomeItem.jsx';
-
 
 import {Home,Cart,
   MenWomenFashion,Admin, 
@@ -15,7 +13,10 @@ import {Home,Cart,
   ProductBuyPage1,
   PaymentOptions,
   ProductBuyPage3,
-  NotFound
+  NotFound,
+  AboutUs,
+  Help,
+  Profile
 } from '../Pages/index.js';
 import Product from '../Components/Layout/product/Product';
 import { admin_url } from '../Pages/admin/Admin';
@@ -36,6 +37,9 @@ function Routes() {
           </Route>
           <Route path="/user-signin">
             <Signin/>
+          </Route>
+          <Route path="/profile">
+            <Profile/>
           </Route>
           <Route path="/orders">
             <Orders/>
@@ -65,6 +69,12 @@ function Routes() {
           </Route>
           <Route exact path="/cart">
             <Cart/>
+          </Route>
+          <Route path="/about_us">
+            <AboutUs/>
+          </Route>
+          <Route path="/help">
+            <Help/>
           </Route>
           <Route path={admin_url}>
             <Admin/>
@@ -173,28 +183,13 @@ function Routes() {
           </Route>
           {/* ------------------------------------------------------------- */}
           
-          
-          {/* <Route path="/men_fashion/S1">
-            <Mp2/>
-          </Route>
-          <Route path="/men_fashion/P1">
-            <Mp3/>
-          </Route>
-          <Route path="/men_fashion/H1">
-            <Mp4/>
-          </Route> */}
           <Route>
             <NotFound/>
           </Route>
-          <HomeItem/>
-
         </Switch>
       </div>
     </Router>
   );
 }
-function Topic(){
-  let {id}=useParams();
-  return <div><Product/></div>;
-}
+
 export default Routes;

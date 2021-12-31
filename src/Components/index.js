@@ -3,5 +3,7 @@ import Header from "./header/Header"
 import Navbar from "./navbar/Navbar"
 import Footer from "./footer/Footer"
 import Loading from './loading/Loading'
+import {loggedIn} from './login/loginSignupForm/Login'
+import { Address } from "./address/Address"
 
-export {PriceDetails, Header, Navbar, Footer, Loading}
+export {PriceDetails, Header,Address, Navbar, Footer, Loading,loggedIn}

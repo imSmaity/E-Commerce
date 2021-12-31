@@ -6,7 +6,7 @@ import Navbar from "../../Components/navbar/Navbar";
 
 
 const Home=()=>{
-    console.log("HOME Page View",JSON.parse(localStorage.getItem("token")))
+    // console.log("HOME Page View",JSON.parse(localStorage.getItem("token")))
     return(
    
             <div className="row">

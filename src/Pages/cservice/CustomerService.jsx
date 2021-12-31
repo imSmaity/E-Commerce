@@ -3,16 +3,21 @@ import Footer from '../../Components/footer/Footer';
 import Header from '../../Components/header/Header';
 import Navbar from '../../Components/navbar/Navbar';
 import './customerService.css';
+import {loggedIn} from '../../Components/index'
+import { useHistory } from 'react-router';
+
 
 const CustomerService=()=>{
     const [question,setQuestion]=useState({status:true})
     const CustomerQuestion=useRef()
-
+    if(!loggedIn()){
+        useHistory().push('/user-login')
+    }
+    
 
     function questionSubmit(e){
         e.preventDefault()
         setQuestion({status:question.status?false:true})
-
     }
 
     return(
