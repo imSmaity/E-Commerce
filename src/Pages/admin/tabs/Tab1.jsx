@@ -15,7 +15,7 @@ const Tab1=(props)=>{
         e.preventDefault();
         axios({
             method: 'post',
-            url: 'http://localhost:8080/admin',
+            url: `https://${process.env.REACT_APP_API_PATH}/admin`,
             data: {
                 productType: data.pType,
                 productId : data.pId,

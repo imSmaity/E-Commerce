@@ -56,7 +56,7 @@ const Product=()=>{
     useEffect(()=>{
         axios({
             method:'POST',
-            url:`http://${process.env.REACT_APP_API_PATH}/admin/product_search`,
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/product_search`,
             data:newPath(id)
         })
         .then(res=>{

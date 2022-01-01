@@ -38,7 +38,7 @@ const Login=()=>{
         e.preventDefault();
         axios({
             method:'post',
-            url:`http://${process.env.REACT_APP_API_PATH}/admin/user_login`,
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/user_login`,
             data:{
                 email:data.email,
             }

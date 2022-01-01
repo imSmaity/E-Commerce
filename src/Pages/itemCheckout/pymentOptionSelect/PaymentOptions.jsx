@@ -27,7 +27,7 @@ export const PaymentOptions=()=>{
 
         axios({
             method:'POST',
-            url:`http://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
             data:{
                 userData:getUserData(),
             }
