@@ -5,10 +5,19 @@ import Header from "../../../Components/header/Header";
 import Navbar from "../../../Components/navbar/Navbar";
 import { Address } from "../../../Components/address/Address";
 import './productBuyPage3.css'
+import { useHistory } from "react-router-dom";
+import { Loading, loggedIn } from "../../../Components";
 
 export const ProductBuyPage3=()=>{
-    const pending_orders=getUserData().pending_orders
-    document.getElementById('chBtn').style.display='none'
+    let pending_orders
+    const history=useHistory();
+    if(!loggedIn()){
+
+        history.push('/user-login')
+    }
+    else{
+        pending_orders=getUserData().pending_orders
+    }
     return(
         <div className="row">
             <div className="col-12"><Header/></div>
@@ -18,27 +27,30 @@ export const ProductBuyPage3=()=>{
                 <Address/>
             </div>
             <div className="col-12 mt-3">
-                <div className="container-fluid">
                 {
-                    pending_orders.map((val,index)=>{
-                        return(
-                            <div className="row ps1h" key={index}>
-                        
-                                <div className="col-4">
-                                    <img className="img-fluid" src={val.imageLink} alt="..."/>
-                                    <span><h5>{val.productName}</h5></span>
-                                </div>
-                                <div className="col-4"></div>
-                                <div className="col-4">
-                                    <p>Total ₹{val.price}</p>
-                                </div>
-                            </div>
-                        );
-                    })
+                    loggedIn()?
+                    <div className="container-fluid">
+                        {
+                            pending_orders.map((val,index)=>{
+                                return(
+                                    <div className="row ps1h" key={index}>
+                                
+                                        <div className="col-4">
+                                            <img className="img-fluid" src={val.imageLink} alt="..."/>
+                                            <span><h5>{val.productName}</h5></span>
+                                        </div>
+                                        <div className="col-4"></div>
+                                        <div className="col-4">
+                                            <p>Total ₹{val.price}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }                                
+                    </div>:
+                    <Loading/>
                 }
-                    
-                        
-                </div>
+                
             </div>
             <div className="col-12"><Footer/></div>
         </div>

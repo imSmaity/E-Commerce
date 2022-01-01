@@ -4,15 +4,20 @@ import Navbar from "../../../Components/navbar/Navbar"
 import Footer from '../../../Components/footer/Footer'
 import { Address } from "../../../Components/address/Address"
 import { OrderingItem } from "../../../Components/orderingItem/OrderingItem"
-import { Link, useRouteMatch,useLocation } from "react-router-dom"
+import { Link, useRouteMatch,useLocation, useHistory } from "react-router-dom"
 import './productBuyPage2.css'
 import axios from 'axios'
 import { getUserData } from "../../../localStorage/localStorage"
+import { Loading, loggedIn } from "../../../Components"
 
 export const PaymentOptions=()=>{
     const {url}=useRouteMatch()
     const userData=getUserData()
+    const history=useHistory()
+    if(!loggedIn()){
 
+        history.push('/user-login')
+    }
     function confirmOrder(){
         
         userData.pending_orders.map((val)=>{
@@ -40,20 +45,27 @@ export const PaymentOptions=()=>{
             <div className="col-12"><Header/></div>
             <div className="col-12"><Navbar/></div>
             <div className="col-12"><Address/></div>
-            <div className="col-9">
-                <OrderingItem pendingOrder={userData.pending_orders}/>
-                <div className="payop mt-3">
-                    <div><strong>PAYMENT OPTIONS</strong></div>
-                    <label htmlFor="cod">Cash on Delivery</label>
-                    <input type="radio" name="cod" id="cod" required/>
-                    <Link to={`${url}/payment_options`}>
-                        <button type="button" className="btn btn-warning" onClick={confirmOrder}>CONFIRM ORDER</button>
-                    </Link>
-                </div>
-            </div>
-            <div className="col-3">
-                <PriceDetails pendingOrder={userData.pending_orders}/>
-            </div>
+            {
+                loggedIn()?
+                <>
+                    <div className="col-9">
+                    <OrderingItem pendingOrder={userData.pending_orders}/>
+                    <div className="payop mt-3">
+                        <div><strong>PAYMENT OPTIONS</strong></div>
+                        <label htmlFor="cod">Cash on Delivery</label>
+                        <input type="radio" name="cod" id="cod" required/>
+                        <Link to={`${url}/payment_options`}>
+                            <button type="button" className="btn btn-warning" onClick={confirmOrder}>CONFIRM ORDER</button>
+                        </Link>
+                    </div>
+                    </div>
+                    <div className="col-3">
+                        <PriceDetails pendingOrder={userData.pending_orders}/>
+                    </div>
+                </>:
+                <div><Loading/></div>
+            }
+            
             <div className="col-12"><Footer/></div>
             
         </div>

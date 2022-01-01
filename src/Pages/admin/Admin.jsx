@@ -3,7 +3,6 @@ import Tab2 from "./tabs/Tab2";
 import Tab3 from "./tabs/Tab3";
 import './admin.css';
 
-const admin_url="/url-admin-suman-expo-20-uino-cc-dd20jadbaoxk36FBVVBJKJ789e3bwekj"
 
 const Admin=()=>{
 
@@ -34,8 +33,6 @@ const Admin=()=>{
         <>
             <div className="tabs">
                 <button type="button" className="tabsBtn" onClick={formView("tab1")}>Product Add</button>      
-                {/* <button type="button" className="tabsBtn" onClick={formView("tab2")}>Product Delete</button>      */}
-                {/* <button type="button" className="tabsBtn" onClick={formView("tab3")}>User Delete</button>                  */}
             </div>
             <div><Tab1 styleing={styleHide} className="pds" /></div>
             <div><Tab2 styleing={styleHide2} className="pds" /></div>
@@ -45,4 +42,3 @@ const Admin=()=>{
 }
 
 export default Admin;
-export {admin_url}

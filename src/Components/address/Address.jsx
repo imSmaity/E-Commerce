@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Loading, loggedIn } from '..';
 import { getUserData } from '../../localStorage/localStorage';
 import './address.css'
 
@@ -19,7 +21,6 @@ function setCurrAddress(currAddress){
 
 function InputAddress(){
     const [currAddress,setAddress]=useState([{name:'',phNo:'',pCode:'',addressLine1:''}])
-
     function inputAddress(e){
         setAddress({...currAddress,[e.target.name]:e.target.value})
     }
@@ -78,11 +79,20 @@ function changeAddress(){
 }
 
 export const Address=()=>{
+    const history=useHistory()
+    let addressFind
+    if(!loggedIn()){
 
-    const addressFind=getUserData().address.name===""
+        history.push('/user-login')
+    }
+    else{
+        addressFind=getUserData().address.name===""
+    }
     return (
+        loggedIn()?
         <div className="container-fluid">
             {!addressFind?<DisplayAddress address={getUserData().address}/>:<InputAddress/>}
-        </div>
+        </div>:
+        <Loading/>
     );
 }

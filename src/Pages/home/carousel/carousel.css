@@ -4,7 +4,12 @@
 .slideImg{
     height: 450px;
 }
+@media screen and (max-width: 800px){
+    .carouselStyle{
+        margin-top: 10vh;
+    }
 
+}
 /* @media screen and (max-width: 1140px){
     .slideImg{
         height: 350px;

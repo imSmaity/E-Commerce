@@ -19,11 +19,9 @@ import {Home,Cart,
   Profile
 } from '../Pages/index.js';
 import Product from '../Components/Layout/product/Product';
-import { admin_url } from '../Pages/admin/Admin';
-
 
 function Routes() {
-
+const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
   return (
     <Router>
       <div className="Routes">
@@ -76,7 +74,7 @@ function Routes() {
           <Route path="/help">
             <Help/>
           </Route>
-          <Route path={admin_url}>
+          <Route path={ADMIN_PATH}>
             <Admin/>
           </Route>
           

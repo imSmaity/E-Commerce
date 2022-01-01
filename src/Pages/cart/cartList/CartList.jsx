@@ -2,6 +2,8 @@ import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import { PriceDetails } from "../../../Components";
 import deleteImg from "../../../Assets/Images/cart-img/delete.png";
+import axios from "axios";
+import { getUserData } from "../../../localStorage/localStorage";
 
 
 
@@ -12,6 +14,19 @@ function placeOrder(userData){
     })
     userData.cart_items=[]
     localStorage["token"]=JSON.stringify(userData)
+
+    axios({
+        method:'POST',
+        url:'http://localhost:8080/admin/userData_update',
+        data:{
+            userData:getUserData(),
+        }
+        
+    })
+    .then(console.log("Success"))
+    .catch(
+        console.log("DB Error!!!")
+    )
 }
 
 

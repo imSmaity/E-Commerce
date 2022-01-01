@@ -3,7 +3,7 @@ import ItemCards from "./cards/ItemCards";
 import Footer from "../../Components/footer/Footer";
 import Header from "../../Components/header/Header";
 import Navbar from "../../Components/navbar/Navbar";
-
+import './home.css'
 
 const Home=()=>{
     // console.log("HOME Page View",JSON.parse(localStorage.getItem("token")))
@@ -13,7 +13,7 @@ const Home=()=>{
                 <div className="col-12 top">
                     <Header/>
                 </div>
-                <div className="col-12">
+                <div className="col-12 nav">
                     <Navbar/>
                 </div>
                 <div className="col-12">

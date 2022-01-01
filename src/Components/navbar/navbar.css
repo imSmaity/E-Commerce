@@ -6,7 +6,12 @@
 
 
 
+@media screen and (max-width: 800px){
+    .navFixed{
+        margin-top: 5.2vh;
+    }
 
+}
 @media screen and (max-width: 575px){
 
 
