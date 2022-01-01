@@ -5,7 +5,7 @@ export default function ProductData(){
     const [isLoaded,setIsLoaded]=useState(false);
 
     useEffect(()=>{
-        fetch("http://localhost:8080/admin/product_data")
+        fetch(`http://${process.env.REACT_APP_API_PATH}/admin/product_data`)
         .then(res=>res.json())
         .then(
             (result)=>{

@@ -13,7 +13,7 @@ const addToCart=(itemData)=>{
 
         axios({
             method:'POST',
-            url:'http://localhost:8080/admin/userData_update',
+            url:`http://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
             data:{
                 userData:getUserData(),
             }
