@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 function priceCalculate(pendingOrder){
     let count=0
     pendingOrder.map((val)=>{
-        count+=val.price
+        count+=(val.price*val.netQuantity)
     })
     return count
 }
@@ -19,7 +19,7 @@ export const PriceDetails=({pendingOrder})=>{
     
     return(
         <>
-            <div className="pfme aress">
+            <div className="pfme">
                 <table className="table">
                     <thead>
                         <tr><th>PRICE DETAILS</th></tr>
@@ -55,9 +55,6 @@ export const PriceDetails=({pendingOrder})=>{
                     </tbody>
                 </table>
             </div>
-            {/* <div>
-                <button type="button" className="btn btn-warning btn-lg">PLACE ORDER</button>
-            </div> */}
         </>
     );
 }

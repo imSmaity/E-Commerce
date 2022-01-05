@@ -26,7 +26,7 @@ const Signin=()=>{
         e.preventDefault();
         axios({
             method:'post',
-            url:'http://localhost:8080/admin/user',
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/user`,
             data:{
                 fname:data.fname,
                 lname:data.lname,
@@ -35,12 +35,8 @@ const Signin=()=>{
                 repassword:data.repassword
             }
         })
-        .then(res=>{
-            console.log(res.data)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+        .then(alert("Successfully signin"))
+
         history.push('/user-login');
     }
 

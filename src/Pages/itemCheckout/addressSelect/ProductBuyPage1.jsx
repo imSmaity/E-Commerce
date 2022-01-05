@@ -34,14 +34,14 @@ export const ProductBuyPage1=()=>{
                     <div className="col-12">
                     <Address />
                     </div>
-                    <div className="col-8">
+                    <div className="col-md-8 col-12">
                         <OrderingItem pendingOrder={pending_orders}/>
-                        <div>
-                            <Link to={`${url}/payment_options`}><button type="button" className="btn btn-primary float-end mt-2">Continue</button></Link>
-                        </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-md-4 col-12 mt-3">
                         <PriceDetails pendingOrder={pending_orders}/>
+                    </div>
+                    <div>
+                        <Link to={`${url}/payment_options`}><button type="button" className="btn btn-primary float-end mt-1">Continue</button></Link>
                     </div>
                 </>:
                 <div>Loading...</div>

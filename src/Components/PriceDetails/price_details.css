@@ -1,4 +1,7 @@
 .pfme{
-    height: 30vh;
-    border: 1px solid black;
+    padding: 5px;
+    border: 1px solid darkgray;
+}
+.table{
+    margin-top: 1vh;
 }

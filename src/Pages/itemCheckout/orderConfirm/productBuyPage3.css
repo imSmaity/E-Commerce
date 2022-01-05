@@ -9,3 +9,11 @@
     width: 30vh;
     height: 30vh;
 }
+.cba{
+    border: 1px solid rgba(0, 0, 0, 0.295);
+    padding: 2vh;
+  
+}
+#aml{
+    margin-left: 1vh;
+}

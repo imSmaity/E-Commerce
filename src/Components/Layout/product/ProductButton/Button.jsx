@@ -51,20 +51,24 @@ export default function Button(props){
     
      return (
          <div id="productBtn">
-         
-            
-                <Link to="/cart">
-                    <button type='button' id="cartBtn" className='btnT-1d' 
-                    onClick={
-                        ()=>{addToCart(props.productData)}}>ADD TO CART
-                    </button>
+  
+            {
+                loggedIn()?
+                <>
+                    <Link to="/cart">
+                        <button type='button' id="cartBtn" className='btnT-1d' onClick={()=>{addToCart(props.productData)}}>
+                        ADD TO CART</button>
+                    </Link>
+                    <Link to={`${url}/checkout`}>
+                        <button type='button'  id="buyBtn" className='btnT-1d' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
+                    </Link>
+                </>:
+                <Link to="/user-login">
+                    <button type='button' id="cartBtn" className='btnT-1d' >ADD TO CART</button>
+                    <button type='button'  id="buyBtn" className='btnT-1d' >BUY NOW</button>
                 </Link>
-                <Link to={`${url}/checkout`}>
-                    <button type='button'  id="buyBtn" className='btnT-1d' onClick={()=>buyNow(props.productData)}>BUY NOW</button>
-                </Link>
-            
-         
-             
+            }
+
          </div>
      );
  }

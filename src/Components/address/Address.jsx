@@ -74,14 +74,32 @@ function InputAddress({setAddressIS}){
         </div>
     )
 }
+function initialValue(data){
+    if(loggedIn()){
+        if(data.address.name!=='' &&
+            data.address.phNo!=='' &&
+            data.address.pCode!=='' &&
+            data.address.addressLine1 !=='' 
+        ){
+            return true
+        }
+        else{
+            return false
+        }  
+    }
+    else{
+        return false
+    }
+}
 
 export const Address=()=>{
-    const [addressIS,setAddressIS]=useState(loggedIn?!(getUserData().address===undefined):null)
+    const [addressIS,setAddressIS]=useState(initialValue(getUserData()))
     const history=useHistory()
     if(!loggedIn()){
 
         history.push('/user-login')
     }
+
     return (
         loggedIn()?
         <div className="container-fluid">

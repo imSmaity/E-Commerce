@@ -9,8 +9,10 @@ import './productBuyPage2.css'
 import axios from 'axios'
 import { getUserData } from "../../../localStorage/localStorage"
 import { Loading, loggedIn } from "../../../Components"
+import { useState } from "react"
 
 export const PaymentOptions=()=>{
+    const [currPaymentOption,setCurrOption]=useState("")
     const {url}=useRouteMatch()
     const userData=getUserData()
     const history=useHistory()
@@ -18,22 +20,30 @@ export const PaymentOptions=()=>{
 
         history.push('/user-login')
     }
+    function paymentOptionInput(e){
+        setCurrOption(e.target.value)
+    }
     function confirmOrder(){
-        
-        userData.pending_orders.map((val)=>{
-            userData.orders.push(val)
-        })
-        userData.cart_items=[]
-        localStorage["token"]=JSON.stringify(userData)
 
-        axios({
-            method:'POST',
-            url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
-            data:{
-                userData:getUserData(),
-            }
-        })
-        .then()
+        if(currPaymentOption!==""){
+            userData.pending_orders.map((val)=>{
+                userData.orders.push(val)
+            })
+            userData.cart_items=[]
+            localStorage["token"]=JSON.stringify(userData)
+
+            axios({
+                method:'POST',
+                url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
+                data:{
+                    userData:getUserData(),
+                }
+            })
+            .then()
+        }
+        else{
+            alert('Please select a payment method for your order.')
+        }
     }
 
     return(
@@ -49,10 +59,15 @@ export const PaymentOptions=()=>{
                     <div className="payop mt-3">
                         <div><strong>PAYMENT OPTIONS</strong></div>
                         <label htmlFor="cod">Cash on Delivery</label>
-                        <input type="radio" name="cod" id="cod" required/>
-                        <Link to={`${url}/payment_options`}>
+                        <input type="radio" name="pOption" id="cod" value={"cod"} onChange={paymentOptionInput}/>
+                        {
+                            currPaymentOption!==""?
+                            <Link to={`${url}/payment_options`}>
+                                <button type="button" className="btn btn-warning" onClick={confirmOrder}>CONFIRM ORDER</button>
+                            </Link>:
                             <button type="button" className="btn btn-warning" onClick={confirmOrder}>CONFIRM ORDER</button>
-                        </Link>
+                        }
+                        
                     </div>
                     </div>
                     <div className="col-3">
