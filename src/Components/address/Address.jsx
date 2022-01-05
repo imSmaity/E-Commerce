@@ -5,57 +5,10 @@ import { Loading, loggedIn } from '..';
 import { getUserData } from '../../localStorage/localStorage';
 import './address.css'
 
-
-
-function setCurrAddress(currAddress){
-    // console.log("address",currAddress)
-    const userData=getUserData()
-    userData.address.name=currAddress.name
-    userData.address.phNo=currAddress.phNo
-    userData.address.pCode=currAddress.pCode
-    userData.address.addressLine1=currAddress.addressLine1
-    localStorage["token"]=JSON.stringify(userData)
-}
-
-
-
-function InputAddress(){
-    const [currAddress,setAddress]=useState([{name:'',phNo:'',pCode:'',addressLine1:''}])
-    function inputAddress(e){
-        setAddress({...currAddress,[e.target.name]:e.target.value})
+function DisplayAddress({address,setAddressIS}){
+    function changeAddress(){
+        setAddressIS(false)
     }
-
-    function submitAddress(){
-        setCurrAddress(currAddress)
-        window.location.reload()
-        axios({
-            method:'POST',
-            url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
-            data:{
-                userData:getUserData(),
-            }
-            
-        })
-        .then(res=>{
-            console.log("Address update",res.data)
-        })
-        .catch(
-            console.log("DB Error!!!")
-        )
-    }
-    return(
-        <div className="aress">
-            <input type="text" name='name' placeholder="Full Name" onChange={(e)=>{inputAddress(e)}} />
-            <input type="number" name='phNo' placeholder="Phone Number" onChange={(e)=>{inputAddress(e)}} />
-            <input type="number" name='pCode' placeholder="Pin Code" onChange={(e)=>{inputAddress(e)}} />
-            <textarea type="text" name='addressLine1' placeholder="Type your address" onChange={(e)=>{inputAddress(e)}} />
-            <button type="button" className="btn btn-dark" onClick={submitAddress}>Submit</button>
-        </div>
-    )
-}
-
-function DisplayAddress({address}){
-
     return(
         <div className="aress">
             <h5>Delivery address</h5>
@@ -71,27 +24,70 @@ function DisplayAddress({address}){
         </div>
     )
 }
-function changeAddress(){
+function oldAddress(){
     const userData=getUserData()
-    userData.address.name=""
+    if(!(getUserData().address===undefined)){
+        return {name: userData.address.name,
+            phNo: userData.address.phNo,
+            pCode: userData.address.pCode,
+            addressLine1: userData.address.addressLine1
+        }
+    }
+    else{
+        return {name:'',phNo:'',pCode:'',addressLine1:''}
+    }
+}
+
+function setCurrAddress(currAddress){
+    const userData=getUserData()
+    userData.address=currAddress
     localStorage["token"]=JSON.stringify(userData)
-    window.location.reload()
+}
+
+function InputAddress({setAddressIS}){
+    const [currAddress,setAddress]=useState(oldAddress)
+
+    function inputAddressHandle(e){
+        setAddress({...currAddress,[e.target.name]:e.target.value})
+    }
+    function submitAddress(){
+        setCurrAddress(currAddress)
+        axios({
+            method:'POST',
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
+            data:{
+                userData:getUserData(),
+            }
+        })
+        .then(res=>{
+            setAddressIS(true)
+            alert("Your address is successfully submited.")
+        })
+    }
+    return(
+        <div className="aress">
+            <input type="text" name='name' placeholder="Full Name" value={currAddress.name} onChange={(e)=>{inputAddressHandle(e)}} />
+            <input type="number" name='phNo' placeholder="Phone Number" value={currAddress.phNo} onChange={(e)=>{inputAddressHandle(e)}} />
+            <input type="number" name='pCode' placeholder="Pin Code" value={currAddress.pCode} onChange={(e)=>{inputAddressHandle(e)}} />
+            <textarea type="text" name='addressLine1' placeholder="Type your address" value={currAddress.addressLine1} onChange={(e)=>{inputAddressHandle(e)}} />
+            <button type="button" className="btn btn-dark" onClick={submitAddress}>Submit</button>
+        </div>
+    )
 }
 
 export const Address=()=>{
+    const [addressIS,setAddressIS]=useState(!(getUserData().address===undefined))
     const history=useHistory()
-    let addressFind
     if(!loggedIn()){
 
         history.push('/user-login')
     }
-    else{
-        addressFind=getUserData().address.name===""
-    }
     return (
         loggedIn()?
         <div className="container-fluid">
-            {!addressFind?<DisplayAddress address={getUserData().address}/>:<InputAddress/>}
+            {addressIS?
+            <DisplayAddress address={getUserData().address} setAddressIS={setAddressIS}/>:
+            <InputAddress setAddressIS={setAddressIS}/>}
         </div>:
         <Loading/>
     );

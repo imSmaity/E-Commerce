@@ -43,7 +43,7 @@ const Header=()=>{
             button=(
                 <>
                     <span ><Link to={"/profile"} id="uname-dply">{userData.fname}</Link></span> 
-                    <button id="loginBtn2"  onClick={loggedOut}>Logout</button>
+                    <button id="loginBtn2" style={{color:'white'}}  onClick={loggedOut}>Logout</button>
                 </>
             );
         }
