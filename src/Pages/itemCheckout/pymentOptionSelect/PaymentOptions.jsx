@@ -23,6 +23,7 @@ export const PaymentOptions=()=>{
         userData.pending_orders.map((val)=>{
             userData.orders.push(val)
         })
+        userData.cart_items=[]
         localStorage["token"]=JSON.stringify(userData)
 
         axios({
@@ -32,12 +33,7 @@ export const PaymentOptions=()=>{
                 userData:getUserData(),
             }
         })
-        .then(res=>{
-            console.log("Confirm Order msg",res.data)
-        })
-        .catch(
-            console.log("DB Error!!!")
-        )
+        .then()
     }
 
     return(

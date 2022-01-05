@@ -6,7 +6,6 @@ import Footer from '../../../Components/footer/Footer'
 import { OrderingItem } from "../../../Components/orderingItem/OrderingItem";
 import { Link,useRouteMatch,useLocation, useHistory } from "react-router-dom";
 import { getUserData } from "../../../localStorage/localStorage";
-import { useState } from "react";
 import { loggedIn } from "../../../Components";
 
 export const ProductBuyPage1=()=>{

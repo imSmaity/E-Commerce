@@ -8,9 +8,22 @@ import { loggedIn } from "../../../login/loginSignupForm/Login";
 const addToCart=(itemData)=>{
     if(loggedIn()){
         const userData=getUserData()
-        userData.cart_items.push(itemData) 
-        localStorage["token"]=JSON.stringify(userData)
+        let productPush=true
+        for(let i=0;i<userData.cart_items.length;i++){
+            if(userData.cart_items[i].productId===itemData.productId){
+                userData.cart_items[i].netQuantity+=1
+                productPush=false
+                i=userData.cart_items.length
+            }
+            
+        }
 
+        if(productPush)
+        {
+            userData.cart_items.push(itemData)
+        }
+
+        localStorage["token"]=JSON.stringify(userData)
         axios({
             method:'POST',
             url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
@@ -19,7 +32,7 @@ const addToCart=(itemData)=>{
             }
             
         })
-        .then(console.log("Success..."))
+        .then()
     }
     
 }

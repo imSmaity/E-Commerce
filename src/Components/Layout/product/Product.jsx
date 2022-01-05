@@ -62,9 +62,7 @@ const Product=()=>{
         .then(res=>{
             setPendingOrder(res.data)
         })
-        .catch(
-            console.log("DB Error!!!")
-        )
+
     },[])
 
 

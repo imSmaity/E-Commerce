@@ -76,7 +76,7 @@ function InputAddress({setAddressIS}){
 }
 
 export const Address=()=>{
-    const [addressIS,setAddressIS]=useState(!(getUserData().address===undefined))
+    const [addressIS,setAddressIS]=useState(loggedIn?!(getUserData().address===undefined):null)
     const history=useHistory()
     if(!loggedIn()){
 
