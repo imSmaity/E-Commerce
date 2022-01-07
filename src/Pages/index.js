@@ -17,8 +17,9 @@ import {ProductBuyPage1} from './itemCheckout/addressSelect/ProductBuyPage1'
 import {PaymentOptions} from './itemCheckout/pymentOptionSelect/PaymentOptions'
 import {ProductBuyPage3} from './itemCheckout/orderConfirm/ProductBuyPage3'
 import  NotFound  from './notFound/NotFound';
+import ForgotPassword from './forgotPassword/ForgotPassword';
 
 
 export {Home,Cart,Orders,CustomerService,MenWomenFashion,Admin,Covid19Product,ElectronicDevices,
     ElectronicProducts,KidsFashion,
-    KitchenProduct,Null,AboutUs,Profile,Help,ProductBuyPage1,PaymentOptions,ProductBuyPage3,NotFound};
+    KitchenProduct,Null,AboutUs,Profile,Help,ProductBuyPage1,PaymentOptions,ProductBuyPage3,NotFound,ForgotPassword};

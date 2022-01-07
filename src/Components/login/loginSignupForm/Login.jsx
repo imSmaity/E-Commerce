@@ -62,10 +62,8 @@ const Login=()=>{
             document.getElementById('errMsg').style.color="red"
         })
 
-        // const token=localStorage.getItem("token")
-        // const userData=JSON.parse(token)
-
     }
+
 
    
     return(
@@ -76,6 +74,10 @@ const Login=()=>{
                 <input type='password' name="password" placeholder="Password" onChange={(e)=>changeData(e)} /><br/>
                 <div id='errMsg'></div>
                 <button type="submit" className="btn btn-dark" onClick={e=>userLogin(e)}>Login</button>
+                <Link to="/">
+                    <button type="button" className="btn btn-dark" style={{marginLeft:'2vh'}} >Cancel</button>
+                </Link>
+                <Link to="/forgot_password"><div id="tb">Forgot password?</div></Link>
                 <div id="tb">Don't have an account?<Link to="/user-signin"><strong> Sign Up</strong></Link></div>
             </center>
        </div>

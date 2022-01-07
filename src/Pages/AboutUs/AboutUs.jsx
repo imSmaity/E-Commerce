@@ -16,7 +16,7 @@ const about=(
 
         <div>
             Sincerely,<br/>
-            Suman Maity, Founder, CEO
+            Suman Maity, Founder
         </div>
     </p>
 );

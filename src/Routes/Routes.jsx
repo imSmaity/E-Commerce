@@ -16,7 +16,8 @@ import {Home,Cart,
   NotFound,
   AboutUs,
   Help,
-  Profile
+  Profile,
+  ForgotPassword
 } from '../Pages/index.js';
 import Product from '../Components/Layout/product/Product';
 
@@ -74,8 +75,11 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           <Route path="/help">
             <Help/>
           </Route>
+          <Route path="/forgot_password">
+            <ForgotPassword/>
+          </Route>
           <Route path={ADMIN_PATH}>
-            <Admin/>
+            <Admin/>forgot_password
           </Route>
           
           
