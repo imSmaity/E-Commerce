@@ -6,7 +6,7 @@ import Navbar from "../../../Components/navbar/Navbar";
 import { Address } from "../../../Components/address/Address";
 import './productBuyPage3.css'
 import { useHistory } from "react-router-dom";
-import { Loading, loggedIn } from "../../../Components";
+import { Loading, loggedIn, PriceDetails } from "../../../Components";
 
 export const ProductBuyPage3=()=>{
     let pending_orders
@@ -48,7 +48,7 @@ export const ProductBuyPage3=()=>{
                                             </div>
                                             <div className="col-2"></div>
                                             <div className="col-4">
-                                                <div>Total ₹{val.price}</div>
+                                                <div>Total ₹{val.price*val.netQuantity}</div>
                                                 <div>Qty: {val.netQuantity}</div>
                                             </div>
                                         </div>

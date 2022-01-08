@@ -36,8 +36,8 @@ const Orders=()=>{
                                     </div>
                                     <div className="col-md-8 col-sm-9 col-9" id="card-cart">
                                         <p className="card-title cfs-3">{orderedItem.productName}</p>
-                                        <p className="card-text">Price:	₹{orderedItem.price}</p>
-                                                
+                                        <p className="card-text">Price:	₹{orderedItem.price*orderedItem.netQuantity}
+                                        <span style={{marginLeft:'2vh'}}>Qty: {orderedItem.netQuantity}</span> </p>   
                                     </div>
                                 </div>
                             )

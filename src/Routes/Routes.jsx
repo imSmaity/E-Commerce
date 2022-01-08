@@ -20,6 +20,8 @@ import {Home,Cart,
   ForgotPassword
 } from '../Pages/index.js';
 import Product from '../Components/Layout/product/Product';
+import { Offline, Online } from 'react-detect-offline';
+import { PayPal } from '../Components';
 
 function Routes() {
 const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
@@ -32,10 +34,19 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           </Route>
           
           <Route path="/user-login">
-            <LoginSignin/>
+            <Online><LoginSignin/></Online>
+           
+            <div style={{color:'red'}}> 
+              <Offline>You're offline right now. Check your connection.</Offline>
+            </div>
           </Route>
           <Route path="/user-signin">
-            <Signin/>
+            <Online><Signin/></Online>
+           
+            <div style={{color:'red'}}> 
+              <Offline>You're offline right now. Check your connection.</Offline>
+            </div>
+           
           </Route>
           <Route path="/profile">
             <Profile/>
@@ -75,8 +86,13 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           <Route path="/help">
             <Help/>
           </Route>
+          
           <Route path="/forgot_password">
-            <ForgotPassword/>
+            <Online><ForgotPassword/></Online>
+           
+            <div style={{color:'red'}}> 
+              <Offline>You're offline right now. Check your connection.</Offline>
+            </div>
           </Route>
           <Route path={ADMIN_PATH}>
             <Admin/>forgot_password
@@ -163,8 +179,25 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           
           {/* ------------------------------------------------------------- */}
           
-          
-          
+          <Route path="/men_fashion/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          <Route path="/kids_fashion/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          <Route path="/covid-19_product/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          <Route path="/electronic_gadget/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          <Route path="/electronics_product/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          <Route path="/kitchen_product/:id/:id/:id/paypal_payment">
+            <PayPal/>
+          </Route>
+          {/* ------------------------------------------------------------------------ */}
           <Route  path="/men_fashion/:id/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
@@ -184,7 +217,8 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
             <ProductBuyPage3/>
           </Route>
           {/* ------------------------------------------------------------- */}
-          
+
+          {/* ----------------------------------------------------------------------------- */}
           <Route>
             <NotFound/>
           </Route>

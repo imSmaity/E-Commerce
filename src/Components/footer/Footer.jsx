@@ -1,3 +1,4 @@
+import { Offline } from 'react-detect-offline';
 import { Link } from 'react-router-dom';
 import './footer.css';
 
@@ -20,6 +21,11 @@ const Footer=()=>{
                                             <li><Link className="footLink" to="/profile">Your Account</Link></li>
                                             <li><Link className="footLink" to="/help">Help</Link></li>
                                         </ul>
+                                    </div>
+                                </div>
+                                <div className='col-12'>
+                                    <div style={{color:'red'}}> 
+                                        <Offline>You're offline right now. Check your connection.</Offline>
                                     </div>
                                 </div>
                             </div>

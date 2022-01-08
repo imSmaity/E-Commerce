@@ -3,19 +3,22 @@ import Header from '../../../Components/header/Header'
 import Navbar from "../../../Components/navbar/Navbar"
 import Footer from '../../../Components/footer/Footer'
 import { OrderingItem } from "../../../Components/orderingItem/OrderingItem"
-import { Link, useRouteMatch,useLocation, useHistory } from "react-router-dom"
+import {  useRouteMatch, useHistory } from "react-router-dom"
 import './productBuyPage2.css'
 import axios from 'axios'
 import { getUserData } from "../../../localStorage/localStorage"
-import { Loading, loggedIn } from "../../../Components"
+import { Loading, loggedIn, PayPal } from "../../../Components"
 import { useState } from "react"
 import './productBuyPage2.css'
 
 export const PaymentOptions=()=>{
     const [currPaymentOption,setCurrOption]=useState("")
+
+
     const {url}=useRouteMatch()
     const userData=getUserData()
     const history=useHistory()
+
     if(!loggedIn()){
 
         history.push('/user-login')
@@ -23,9 +26,10 @@ export const PaymentOptions=()=>{
     function paymentOptionInput(e){
         setCurrOption(e.target.value)
     }
+
     function confirmOrder(){
 
-        if(currPaymentOption!==""){
+        if(currPaymentOption==="COD"){
             userData.pending_orders.map((val)=>{
                 userData.orders.push(val)
             })
@@ -39,7 +43,12 @@ export const PaymentOptions=()=>{
                     userData:getUserData(),
                 }
             })
-            .then()
+            .then(
+                history.push(`${url}/confirm_order`)
+            )
+        }
+        else if(currPaymentOption==="PAYPAL"){
+            history.push(`${url}/paypal_payment`)
         }
         else{
             alert('Please select a payment method for your order.')
@@ -67,24 +76,21 @@ export const PaymentOptions=()=>{
                     <div className="col-md-4 col-12 mt-3">
                         <PriceDetails pendingOrder={userData.pending_orders}/>
                     </div>
-                    <div className="col-6 mt-3">
+                    <div className="col-12 mt-3">
                         <div><strong>PAYMENT OPTIONS</strong></div>
-                        <div>
-                            <span style={{marginRight:'1vh'}}>Cash on Delivery</span>
-                            <input type="radio" name="pOption" value={"cod"} onChange={paymentOptionInput}/>
+                        <div  style={{marginLeft:'2vh',marginTop:'2vh'}}>
+                            
+                            <input type="radio" name="pOption" value={"COD"} style={{marginRight:'1vh'}} onChange={paymentOptionInput}/>
+                            <span >Cash on Delivery</span><br/>
+                            <input type="radio" name="pOption" value={"PAYPAL"} style={{marginRight:'1vh'}} onChange={paymentOptionInput}/>
+                            <span >Pay with paypal </span>
                         </div>
                         
                     </div>
-                    <div className="col-6 ">
-                        {
-                            currPaymentOption!==""?
-                            <Link to={`${url}/payment_options`}>
-                                <button type="button" className="btn btn-warning float-end mt-3" onClick={confirmOrder}>CONFIRM ORDER</button>
-                            </Link>:
-                            <button type="button" className="btn btn-warning float-end mt-3" onClick={confirmOrder}>CONFIRM ORDER</button>
-                        }
-                        
-                    
+                    <div className="col-12 ">
+                        <center>                  
+                            <button type="button" className="btn btn-warning float-center mt-3" onClick={confirmOrder}>CONFIRM ORDER</button>
+                        </center>
                     </div>
                     
                 </>:
