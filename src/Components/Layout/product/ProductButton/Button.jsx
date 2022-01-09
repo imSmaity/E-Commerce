@@ -11,7 +11,7 @@ const addToCart=(itemData)=>{
         let productPush=true
         for(let i=0;i<userData.cart_items.length;i++){
             if(userData.cart_items[i].productId===itemData.productId){
-                userData.cart_items[i].netQuantity+=1
+                userData.cart_items[i].netQuantity+=itemData.netQuantity
                 productPush=false
                 i=userData.cart_items.length
             }

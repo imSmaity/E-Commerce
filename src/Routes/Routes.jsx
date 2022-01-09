@@ -176,44 +176,24 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           <Route exact path="/cart/:id/:id/:id">
             <ProductBuyPage3/>
           </Route>
-          
-          {/* ------------------------------------------------------------- */}
-          
-          <Route path="/men_fashion/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
-          <Route path="/kids_fashion/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
-          <Route path="/covid-19_product/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
-          <Route path="/electronic_gadget/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
-          <Route path="/electronics_product/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
-          <Route path="/kitchen_product/:id/:id/:id/paypal_payment">
-            <PayPal/>
-          </Route>
+
           {/* ------------------------------------------------------------------------ */}
-          <Route  path="/men_fashion/:id/:id/:id/:id">
+          <Route  path="/men_fashion/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/kids_fashion/:id/:id/:id/:id">
+          <Route  path="/kids_fashion/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/covid-19_product/:id/:id/:id/:id">
+          <Route  path="/covid-19_product/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/electronic_gadget/:id/:id/:id/:id">
+          <Route  path="/electronic_gadget/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/electronics_product/:id/:id/:id/:id">
+          <Route  path="/electronics_product/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          <Route  path="/kitchen_product/:id/:id/:id/:id">
+          <Route  path="/kitchen_product/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
           {/* ------------------------------------------------------------- */}

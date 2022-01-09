@@ -13,16 +13,16 @@ function priceCalculate(){
       count+=(val.price*val.netQuantity)
   })
   if(count<500){
-    return ((count+40)/55.5).toFixed(2)
+    return ((count+40)/55.3).toFixed(2)
   }
   else{
-    return (count/55.5).toFixed(2)
+    return (count/55.3).toFixed(2)
   }
    
 }
 
-export default function PayPal() {
-    const [paymentState, setPayment] = useState({status:""})
+export default function PayPal({setPayment}) {
+    
     const paypal=useRef()
     const history=useHistory()
     const userData=getUserData()
@@ -31,25 +31,7 @@ export default function PayPal() {
     if(!loggedIn()){
       history.push('/')
     }
-    if(paymentState.status==="COMPLETED"){
-      userData.pending_orders.map((val)=>{
-          userData.orders.push(val)
-      })
-      userData.cart_items=[]
-      localStorage["token"]=JSON.stringify(userData)
-      
-      axios({
-          method:'POST',
-          url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
-          data:{
-              userData:getUserData(),
-          }
-      })
-      .then(()=>{
-        setPayment({status:""})
 
-      })
-    }
     useEffect(()=>{
         if(loggedIn()){
           console.log(priceCalculate())
@@ -83,22 +65,16 @@ export default function PayPal() {
       <>
         
         {
-          paymentState.status!=="COMPLETED"?
+
           loggedIn()?
-          <div className='row'>
-            <div className='col-12'><Header/></div>
-            <div className='col-12'><Navbar/></div>
-            <div className='col-12' style={{marginTop:'40vh'}}>
-              <center>
-                <div ref={paypal} style={{marginLeft:'.5vh'}} className='mt-1'></div>
-              </center>
-            </div>
-          <div className='col-12'><Footer/></div>
-          </div>:
-          <div></div>:
-          <ProductBuyPage3/>
-          
-          
+
+            <center>
+              <div ref={paypal} style={{marginLeft:'.5vh'}} className='mt-1'></div>
+            </center>
+        
+          :
+          <div></div>
+
         }
         
         

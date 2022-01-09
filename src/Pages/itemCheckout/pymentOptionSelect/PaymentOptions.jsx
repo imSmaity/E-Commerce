@@ -13,7 +13,7 @@ import './productBuyPage2.css'
 
 export const PaymentOptions=()=>{
     const [currPaymentOption,setCurrOption]=useState("")
-
+    const [paymentState, setPayment] = useState({status:""})
 
     const {url}=useRouteMatch()
     const userData=getUserData()
@@ -27,6 +27,25 @@ export const PaymentOptions=()=>{
         setCurrOption(e.target.value)
     }
 
+    if(paymentState.status==="COMPLETED"){
+        userData.pending_orders.map((val)=>{
+            userData.orders.push(val)
+        })
+        userData.cart_items=[]
+        localStorage["token"]=JSON.stringify(userData)
+        
+        axios({
+            method:'POST',
+            url:`https://${process.env.REACT_APP_API_PATH}/admin/userData_update`,
+            data:{
+                userData:getUserData(),
+            }
+        })
+        .then(()=>{
+          setPayment({status:""})
+          history.push(`${url}/confirm_order`)
+        })
+    }
     function confirmOrder(){
 
         if(currPaymentOption==="COD"){
@@ -46,9 +65,6 @@ export const PaymentOptions=()=>{
             .then(
                 history.push(`${url}/confirm_order`)
             )
-        }
-        else if(currPaymentOption==="PAYPAL"){
-            history.push(`${url}/paypal_payment`)
         }
         else{
             alert('Please select a payment method for your order.')
@@ -88,8 +104,13 @@ export const PaymentOptions=()=>{
                         
                     </div>
                     <div className="col-12 ">
-                        <center>                  
-                            <button type="button" className="btn btn-warning float-center mt-3" onClick={confirmOrder}>CONFIRM ORDER</button>
+                        <center> 
+                            {
+                                currPaymentOption==="PAYPAL"?
+                                <PayPal setPayment={setPayment}/>:
+                                <button type="button" className="btn btn-warning float-center mt-3" onClick={confirmOrder}>CONFIRM ORDER</button>
+                            }                 
+                            
                         </center>
                     </div>
                     
