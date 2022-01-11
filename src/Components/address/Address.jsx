@@ -11,7 +11,7 @@ function DisplayAddress({address,setAddressIS}){
     }
     return(
         <div className="aress">
-            <h5>Delivery address</h5>
+            <h5 id="addssM">Delivery address</h5>
             <div className="addressData">
                 <span>Name:{address.name}</span>
                 <span>Phone Number:{address.phNo}</span>
@@ -66,6 +66,7 @@ function InputAddress({setAddressIS}){
     }
     return(
         <div className="aress">
+            <h5 id="addssM">Delivery address</h5>
             <input type="text" name='name' placeholder="Full Name" value={currAddress.name} onChange={(e)=>{inputAddressHandle(e)}} />
             <input type="number" name='phNo' placeholder="Phone Number" value={currAddress.phNo} onChange={(e)=>{inputAddressHandle(e)}} />
             <input type="number" name='pCode' placeholder="Pin Code" value={currAddress.pCode} onChange={(e)=>{inputAddressHandle(e)}} />

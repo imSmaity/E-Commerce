@@ -123,14 +123,14 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           <Route exact path="/cart/:id">
             <ProductBuyPage1/>
           </Route>
-
-          {/* ------------------------------------------------------------- */}
-          <Route path="/home_carousels/:id">
+          <Route exact path="/home_carousels/:id">
               <Product/>
           </Route>
-          <Route path="/home_carousels/:id">
-              <Product/>
-              </Route>
+          {/* ------------------------------------------------------------- */}
+          
+          <Route exact path="/home_carousels/:id/:id">
+            <ProductBuyPage1/>
+          </Route>
           <Route exact path="/men_fashion/:id/:id">
             <ProductBuyPage1/>
           </Route>
@@ -155,6 +155,9 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           
           
           {/* ------------------------------------------------------------- */}
+          <Route exact path="/home_carousels/:id/:id/:id">
+            <PaymentOptions/>
+          </Route>
           <Route exact path="/men_fashion/:id/:id/:id">
             <PaymentOptions/>
           </Route>
@@ -178,6 +181,9 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           </Route>
 
           {/* ------------------------------------------------------------------------ */}
+          <Route path="/home_carousels/:id/:id/:id/confirm_order">
+            <ProductBuyPage3/>
+          </Route>
           <Route  path="/men_fashion/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
@@ -196,7 +202,6 @@ const ADMIN_PATH=process.env.REACT_APP_ADMIN_PATH
           <Route  path="/kitchen_product/:id/:id/:id/confirm_order">
             <ProductBuyPage3/>
           </Route>
-          {/* ------------------------------------------------------------- */}
 
           {/* ----------------------------------------------------------------------------- */}
           <Route>
