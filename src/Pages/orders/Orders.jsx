@@ -5,6 +5,7 @@ import Footer from '../../Components/footer/Footer';
 import { getUserData } from '../../localStorage/localStorage';
 import './orders.css'
 import { loggedIn } from '../../Components';
+import { Link } from 'react-router-dom';
 
 const Orders=()=>{
     
@@ -26,6 +27,8 @@ const Orders=()=>{
                 <Navbar/>
             </div>
             <div className="col-12 omt">
+            {
+                loggedIn()===true && getUserData().orders.length!==0?
                 <div className="container">
                     {loggedIn()===true &&
                         getUserData().orders.reverse().map((orderedItem,index)=>{
@@ -43,9 +46,18 @@ const Orders=()=>{
                             )
                         })
                     }
-                </div>
+                </div>:
+                <center className="mt-5">
+                    <div>
+                        <h5>No order has been placed, yet!</h5>
+                        <Link to="/"><button type='button' className="btn btn-primary">Shop Now</button></Link>
+                    </div>
+                </center>
+
+            }
+                
             </div>
-            <div className="col-12">
+            <div className="col-12 mt-3">
                 <Footer/>
             </div>
         </div>

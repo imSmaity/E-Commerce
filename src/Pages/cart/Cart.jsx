@@ -45,17 +45,25 @@ const Cart=()=>{
             <div className="col-12">
                 <Navbar/>
             </div>
-            <div className="col-12">
-                {
-                    cartCount!==0?
-                    <CartList userData={userData}/>:
-                    <NullCartItem/>
-                }
-            </div>
-
-            <div className="col-12">
-                <Footer/>
-            </div>
+            
+            {
+                
+                cartCount!==0?
+                <div className="col-12">
+                    <CartList userData={userData}/>
+                    <Footer/>
+                </div>:
+                <>
+                    <div className="col-12" style={{marginTop:'15vh'}}>
+                        <NullCartItem/>
+                    </div>
+                    <div className='col-12 mt-5'>
+                        <Footer/>
+                    </div>
+                </>
+                
+            }
+            
         </div>
     );
 

@@ -1,6 +1,6 @@
 import './header.css';
 import cart from '../../Assets/Images/header-img/cart.svg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getUserData } from '../../localStorage/localStorage';
 
@@ -28,6 +28,8 @@ const CartEle=({cartItemCount})=>{
 const Header=()=>{
     const [cartCount,setCartCount]=useState(0)
     const userData=getUserData()
+    const history=useHistory()
+
     useEffect(()=>{
         if(userData !== null){
             setCartCount(userData.cart_items.length)
@@ -50,12 +52,13 @@ const Header=()=>{
     }
     function loggedOut(){
         localStorage.removeItem("token")
+        history.push('/')
         window.location.reload()
     }
     userLoggedStatus()
     return (
         <>  
-            <div className="row topFixed fixed-top p-2">
+            <div className="row topFixed fixed-top p-2" >
                 <div className="col-lg-8 col-md-7 col-sm-5 col-3">           {/*flexbox-> 3+5+4*/}
                     <h3 id="h3"><Link id="title-link" to="/">Shop.IN</Link></h3>
                 </div>

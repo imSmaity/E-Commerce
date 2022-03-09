@@ -47,7 +47,7 @@ const CustomerService=()=>{
                     
                 </center>
             </div>
-            <div className="col-12"><Footer/></div>
+            <div className="col-12 mt-2"><Footer/></div>
         </div>
     );
 }

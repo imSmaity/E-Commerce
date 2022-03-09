@@ -16,10 +16,11 @@ function submitData(userData,msg,history){
             password:userData.password,
         }
     })
-    .then(
-        alert(msg),
-        history.push('/user-login')
-    )
+    .then((res)=>{
+        alert(msg)
+        localStorage.setItem("token",JSON.stringify(res.data))
+        history.push('/')
+    })
 }
 
 function validation(userData){
@@ -50,6 +51,7 @@ function validation(userData){
 
 const Signin=()=>{
     const [data,setData]=useState({fname:'',lname:'',email:'',dob:'',password:'',rpassword:''});
+    const [signinLoad,setSigninLoad]=useState(false)
     
     const history=useHistory();
     const token=localStorage.getItem("token")
@@ -67,6 +69,7 @@ const Signin=()=>{
     }
 
     function register(e){
+        setSigninLoad(true)
         e.preventDefault();
         
         const validation_state=validation(data)
@@ -78,11 +81,13 @@ const Signin=()=>{
                 }
                 else{
                     alert("Email address is already registered")
+                    setSigninLoad(false)
                 }
             })
         }
         else{
             alert(validation_state.msg)
+            setSigninLoad(false)
         }
     }
 
@@ -98,9 +103,9 @@ const Signin=()=>{
                     <input type="date" placeholder="DOB" name="dob" onChange={(e)=>changeData(e)} required/><br/>
                     <input type='password' placeholder="Enter password" name="password" maxLength="10" onChange={(e)=>changeData(e)} autoComplete="new-password" required/><br/>
                     <input type='password' placeholder="Re-enter your password" name="rpassword" onChange={(e)=>changeData(e)} required/><br/>
-                    <button type="submit" className="btn btn-dark" onClick={e=>{register(e)}}>Submit</button>
+                    <button type="submit" className="btn btn-dark" onClick={e=>{register(e)}} disabled={signinLoad}>Submit</button>
                     <Link to="/user-login">
-                        <button type="button" className="btn btn-dark" style={{marginLeft:'2vh'}} >Cancel</button>
+                        <button type="button" className="btn btn-dark" style={{marginLeft:'2vh'}} disabled={signinLoad}>Cancel</button>
                     </Link>
                 </form>
                 <div id="tb">Have an account?

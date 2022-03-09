@@ -1,5 +1,6 @@
 import Header from "../../Components/header/Header";
 import Navbar from "../../Components/navbar/Navbar";
+import Footer from "../../Components/footer/Footer";
 import './aboutus.css';
 
 
@@ -32,6 +33,9 @@ export const AboutUs=()=>{
             </div>
             <div className="col-12">
                 {about}
+            </div>
+            <div className="col-12 mt-3">
+                <Footer/>
             </div>
         </div>
     );
