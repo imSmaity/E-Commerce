@@ -6,14 +6,14 @@ import Navbar from "../../Components/navbar/Navbar";
 import './home.css'
 
 const Home=()=>{
-    // console.log("HOME Page View",JSON.parse(localStorage.getItem("token")))
+
     return(
    
             <div className="row">
-                <div className="col-12 top">
+                <div className="col-12">
                     <Header/>
                 </div>
-                <div className="col-12 nav">
+                <div className="col-12">
                     <Navbar/>
                 </div>
                 <div className="col-12">
